@@ -2,7 +2,6 @@
 
 ## Plan:
 
-<<<<<<< HEAD
 - [x] Init project
 - [ ] Design:
 - [ ] Services
