@@ -3,7 +3,7 @@
 ## Plan:
 
 - [x] Init project
-- [ ] Design:
+- [ ] [Design](https://www.figma.com/file/hu4B8D7JGxXmI3jaIGsnGh/Rock-paper-scrissors-game?node-id=0%3A1)
 - [ ] Services
 - [ ] Store
 - [ ] fake DataBase
