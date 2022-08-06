@@ -1,12 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 function Rating(props) {
-  return (
-    <div>Rating</div>
-  )
+    return <div>Rating</div>;
 }
 
-Rating.propTypes = {}
+Rating.propTypes = {};
 
-export default Rating
+export default Rating;

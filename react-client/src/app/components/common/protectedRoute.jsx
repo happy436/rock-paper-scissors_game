@@ -1,16 +1,16 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
-import { getIsLoggedIn } from "./../../store/users";
+//import { useSelector } from "react-redux";
+//import { getIsLoggedIn } from "./../../store/users";
 
 function ProtectedRoute({ component: Component, children, ...rest }) {
-    const isLoggedIn = useSelector(getIsLoggedIn());
+    // const isLoggedIn = useSelector(getIsLoggedIn());
     return (
         <Route
             {...rest}
             render={(props) => {
-                if (!isLoggedIn) {
+                /* if (!isLoggedIn) {
                     return (
                         <Redirect
                             to={{
@@ -21,7 +21,7 @@ function ProtectedRoute({ component: Component, children, ...rest }) {
                             }}
                         />
                     );
-                }
+                } */
                 return Component ? <Component {...props} /> : children;
             }}
         />

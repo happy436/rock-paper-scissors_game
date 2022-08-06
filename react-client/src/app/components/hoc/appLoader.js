@@ -1,26 +1,9 @@
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    loadUsersList,
-    getIsLoggedIn,
-    getUsersLoadingStatus
-} from "../../../store/users";
-import { loadProfessionsList } from "../../../store/professions";
-import { loadQualitiesList } from "./../../../store/qualities";
 
 function AppLoader({ children }) {
-    const dispatch = useDispatch();
-    const isLoggedIn = useSelector(getIsLoggedIn());
-    const usersStatusLoading = useSelector(getUsersLoadingStatus());
-    useEffect(() => {
-        dispatch(loadQualitiesList());
-        dispatch(loadProfessionsList());
-        if (isLoggedIn) {
-            dispatch(loadUsersList());
-        }
-    }, [isLoggedIn]);
-    if (usersStatusLoading) return "Loading...";
+    /* const dispatch = useDispatch(); */
     return children;
 }
 
