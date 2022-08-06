@@ -1,6 +1,6 @@
-## Rock Paper Scissor Game
+# Rock Paper Scissor Game
 
-## Plan:
+## Plan
 
 - [x] Init project
 - [ ] [Design](https://www.figma.com/file/hu4B8D7JGxXmI3jaIGsnGh/Rock-paper-scrissors-game?node-id=0%3A1)

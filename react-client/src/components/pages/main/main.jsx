@@ -15,7 +15,7 @@ function Main(props) {
                     >
                         Sign In
                     </Link>
-                    Don't have
+                    {`Don't have`}
                     <Link
                         className="container-center btn p-4 rounded-xl"
                         to="/login/register"
