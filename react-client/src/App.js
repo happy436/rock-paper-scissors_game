@@ -16,13 +16,13 @@ function App() {
             <Switch>
                 <ProtectedRoute
                     path="/profile/:userId?/:edit?"
-                    component={<Profile />}
+                    component={Profile}
                 />
                 <ProtectedRoute
                     path="/rating/:userId?"
-                    component={<Rating />}
+                    component={Rating}
                 />
-                <ProtectedRoute path="/game" component={<Game />} />
+                <ProtectedRoute path="/game" component={Game} />
                 <Route path="/login/:type?" component={Login} />
                 <Route path="/logout" component={LogOut} />
                 <Route path="/" component={Main}></Route>
