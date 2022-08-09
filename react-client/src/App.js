@@ -9,20 +9,19 @@ import Login from "./layouts/login";
 import Game from "./components/pages/game";
 import Profile from "./components/pages/profile";
 import Rating from "./components/pages/rating";
+import Header from "./components/header";
 
 function App() {
     return (
         <AppLoader>
+            <Header />
             <Switch>
                 <ProtectedRoute
                     path="/profile/:userId?/:edit?"
-                    component={<Profile />}
+                    component={Profile}
                 />
-                <ProtectedRoute
-                    path="/rating/:userId?"
-                    component={<Rating />}
-                />
-                <ProtectedRoute path="/game" component={<Game />} />
+                <ProtectedRoute path="/rating/:userId?" component={Rating} />
+                <ProtectedRoute path="/game" component={Game} />
                 <Route path="/login/:type?" component={Login} />
                 <Route path="/logout" component={LogOut} />
                 <Route path="/" component={Main}></Route>

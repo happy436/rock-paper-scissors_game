@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
+/* import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux"; */
 
 function AppLoader({ children }) {
     /* const dispatch = useDispatch(); */

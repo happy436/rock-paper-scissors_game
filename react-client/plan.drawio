@@ -1,0 +1,30 @@
+<mxfile host="app.diagrams.net" modified="2022-08-08T10:41:47.890Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="nNbyTuSxJrt7neNAWpv4" version="20.2.2" type="github">
+  <diagram id="pl_VEVI09KF11xBkgy9S" name="Страница 1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tpaCjs1uWNmvQxx3Lpl9-1" value="Database" style="swimlane;glass=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="30" width="570" height="310" as="geometry">
+            <mxRectangle x="80" y="30" width="90" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tpaCjs1uWNmvQxx3Lpl9-2" value="Users" style="swimlane;" vertex="1" parent="tpaCjs1uWNmvQxx3Lpl9-1">
+          <mxGeometry x="10" y="40" width="240" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="tpaCjs1uWNmvQxx3Lpl9-6" value="_id:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- _id&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- name&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- email&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- win&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- lose&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- rating = 100&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- favourite_item:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;[&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;{ name: &quot;scissors&quot;, &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&amp;nbsp; num_uses: 0&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;},&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;]" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#FFFFFF;align=left;" vertex="1" parent="tpaCjs1uWNmvQxx3Lpl9-2">
+          <mxGeometry x="10" y="40" width="220" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="tpaCjs1uWNmvQxx3Lpl9-3" value="data" style="swimlane;" vertex="1" parent="tpaCjs1uWNmvQxx3Lpl9-1">
+          <mxGeometry x="280" y="40" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="tpaCjs1uWNmvQxx3Lpl9-4" value="items:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;name:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- icon = href&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- name" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="tpaCjs1uWNmvQxx3Lpl9-3">
+          <mxGeometry x="20" y="40" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tpaCjs1uWNmvQxx3Lpl9-5" value="language:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- name&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;- text" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#FFFFFF;align=left;" vertex="1" parent="tpaCjs1uWNmvQxx3Lpl9-3">
+          <mxGeometry x="170" y="40" width="80" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,12 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+/* import PropTypes from "prop-types"; */
 
 function Game(props) {
-  return (
-    <div>Game</div>
-  )
+    return <div>Game</div>;
 }
 
-Game.propTypes = {}
+Game.propTypes = {};
 
-export default Game
+export default Game;
