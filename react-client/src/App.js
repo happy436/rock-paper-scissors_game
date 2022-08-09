@@ -20,7 +20,10 @@ function App() {
                     path="/profile/:userId?/:edit?"
                     component={Profile}
                 />
-                <ProtectedRoute path="/rating/:userId?" component={Rating} />
+                <ProtectedRoute
+                    path="/rating/:userId?"
+                    component={Rating}
+                />
                 <ProtectedRoute path="/game" component={Game} />
                 <Route path="/login/:type?" component={Login} />
                 <Route path="/logout" component={LogOut} />
