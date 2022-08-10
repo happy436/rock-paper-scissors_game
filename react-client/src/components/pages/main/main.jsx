@@ -1,14 +1,9 @@
 import React from "react";
-<<<<<<< HEAD
 import InitGame from "./layouts/initGame";
 import InitLogin from "./layouts/initLogin";
 
-function Main() {
+const Main = () => {
     const isLoggedIn = true;
-=======
-/* import PropTypes from "prop-types"; */
-import { Link } from "react-router-dom";
->>>>>>> cb130d025a73866532cc4b8421b63d094cf42900
 
     return (
         <main className="Main__container container-center h-full flex flex-col gap-[40px] relative">
@@ -19,5 +14,5 @@ import { Link } from "react-router-dom";
             {!isLoggedIn ? <InitLogin /> : <InitGame />}
         </main>
     );
-}
+};
 export default Main;

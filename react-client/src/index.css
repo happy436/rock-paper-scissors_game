@@ -16,7 +16,7 @@ body {
     height: 100vh;
 }
 
-#root{
+#root {
     height: 100%;
 }
 
@@ -42,10 +42,6 @@ body {
 
 .btn {
     background: theme("colors.indigo.500");
-    box-shadow: -8px -8px 26px rgba(255, 255, 255, 0.48),
-        18px 18px 26px rgba(0, 0, 0, 0.33),
-        inset 0px 4px 42px rgba(0, 0, 0, 0.06);
-    color: theme("colors.white");
     width: max-content;
 }
 
@@ -53,24 +49,16 @@ body {
     background: theme("colors.indigo.600");
 }
 
-.btn:active {
-    box-shadow: inset -6px -6px 12px rgba(255, 255, 255, 0.25),
-        inset 6px 6px 12px rgba(0, 0, 0, 0.25);
-}
-
-.container-convex{
+.container-convex {
     box-shadow: -8px -8px 26px rgba(255, 255, 255, 0.48),
         18px 18px 26px rgba(0, 0, 0, 0.33),
         inset 0px 4px 42px rgba(0, 0, 0, 0.06);
 }
 
-.container-concave{
+.btn:active,
+.container-concave {
     box-shadow: inset -6px -6px 12px rgba(255, 255, 255, 0.25),
         inset 6px 6px 12px rgba(0, 0, 0, 0.25);
-}
-
-aside{
-    
 }
 
 @media screen and (min-width: 425px) {
