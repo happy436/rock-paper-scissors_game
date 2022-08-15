@@ -1,18 +1,19 @@
 import React from "react";
 import InitGame from "./layouts/initGame";
 import InitLogin from "./layouts/initLogin";
+/* import s from "./main.module.css"; */
 
 const Main = () => {
-    const isLoggedIn = true;
+    const isLoggedIn = false;
 
     return (
-        <main className="Main__container container-center h-full flex flex-col gap-[40px] relative">
-            <span className="container-center flex-col absolute top-[20px]">
+        <section className={`container-center flex flex-col gap-[40px] mt-4`}>
+            <span className="container-center flex-col">
                 <h1 className="text-5xl text-center">Rock, paper, scissors</h1>
                 <h3>and another</h3>
             </span>
             {!isLoggedIn ? <InitLogin /> : <InitGame />}
-        </main>
+        </section>
     );
 };
 export default Main;

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { Router } from "react-router-dom";
@@ -7,15 +7,15 @@ import history from "./utils/history";
 import { Provider } from "react-redux";
 import { createStore } from "./store/createStore";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
 const store = createStore();
 
-root.render(
+ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <Router history={history}>
                 <App />
             </Router>
         </Provider>
-    </React.StrictMode>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
