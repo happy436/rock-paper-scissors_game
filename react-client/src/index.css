@@ -81,7 +81,7 @@ h4{
 }
 
 .btn:hover {
-    background: theme("colors.indigo.600");
+    background: theme("colors.indigo.700");
 }
 
 .container-convex {
