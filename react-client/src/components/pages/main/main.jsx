@@ -8,8 +8,9 @@ const Main = () => {
 
     return (
         <section className={`container-center flex flex-col gap-[40px] mt-4`}>
+            <span className="text-[60px]">🤏✌✋✊🖖</span>
             <span className="container-center flex-col">
-                <h1 className="text-5xl text-center">Rock, paper, scissors</h1>
+                <h1 className="text-5xl text-center">✊ ✋ ✌</h1>
                 <h3>and another</h3>
             </span>
             {!isLoggedIn ? <InitLogin /> : <InitGame />}

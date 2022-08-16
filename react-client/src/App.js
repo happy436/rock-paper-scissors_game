@@ -14,8 +14,10 @@ import Settings from "./components/pages/settings/settings";
 import Achievements from "./components/pages/achievements/achievements";
 
 function App() {
+    const isLoggedIn = false;
     return (
         <AppLoader>
+            <h1 className="hidden">Rock, paper, scissors</h1>
             <Header />
             <main className="mt-[100px]">
                 <Switch>
@@ -28,13 +30,13 @@ function App() {
                 <ProtectedRoute path="/game" component={Game} /> */}
                     <Route path="/rating" component={Rating} />
                     <Route path="/game" component={Game} />
-                    <Route path="/achievement" component={Achievements} />
+                    <Route path="/achievements" component={Achievements} />
                     <Route path="/profile" component={Profile} />
-                    <Route path="/setting" component={Settings} />
+                    <Route path="/settings" component={Settings} />
                     <Route path="/login/:type?" component={Login} />
                     <Route path="/logout" component={LogOut} />
                     <Route path="/" exact component={Main} />
-                    <Redirect to="/" />
+                    <Redirect to={isLoggedIn ? "/home" : "/"} />
                 </Switch>
             </main>
             <ToastContainer />

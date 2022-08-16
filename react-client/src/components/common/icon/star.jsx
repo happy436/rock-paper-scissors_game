@@ -1,10 +1,11 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
-function Star(props) {
+function Star({ active }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className={`h-6 w-6 ${active && "fill-yellow-400"}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -18,5 +19,9 @@ function Star(props) {
         </svg>
     );
 }
+
+Star.propTypes = {
+    active: PropTypes.bool
+};
 
 export default Star;

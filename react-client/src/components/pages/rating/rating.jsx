@@ -15,11 +15,24 @@ function Rating(props) {
         { _id: 9, name: "User2", rating: 32 },
         { _id: 10, name: "User2", rating: 32 },
         { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
+        { _id: 11, name: "User2", rating: 32 },
         { _id: 12, name: "User2", rating: 32 }
     ];
     const userId = 5;
     return (
-        <section className="w-full mt-4 container-center">
+        <section className="w-full mt-4 mb-5 container-center">
             <ul className="container-center flex-col w-full gap-[20px] max-w-[400px] px-4">
                 {list
                     .sort((a, b) => b.rating - a.rating)
