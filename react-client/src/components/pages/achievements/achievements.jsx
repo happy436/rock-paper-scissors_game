@@ -1,52 +1,64 @@
 import React from "react";
 import Star from "./../../common/icon/star";
-import componentMultiplication from "./../../../utils/componentMultiplication";
 import AchievementsList from "./components/achievementsList";
 
 function Achievements(props) {
     const achievementsList = [
         {
+            title: "I am the best",
+            description: "Get all achievements",
+            goal: 1,
+            value: 0,
+            star: 1
+        },
+        {
             title: "Cut off",
-            description: "Win with scissors",
+            description: "Win with scissors ✌",
             goal: 100,
             value: 40
         },
         {
-            title: "Cut off",
-            description: "Win with scissors",
+            title: "Smash them",
+            description: "Win with rock ✊",
             goal: 100,
             value: 11
         },
         {
-            title: "Cut off",
-            description: "Win with scissors",
+            title: "Death note",
+            description: "Win with paper 🤚",
             goal: 100,
             value: 11
         },
         {
-            title: "Cut off",
-            description: "Win with scissors",
+            title: "Ancient dragon",
+            description: "Win with lizard 🤏",
             goal: 100,
             value: 11
         },
         {
-            title: "Cut off",
-            description: "Win with scissors",
+            title: "I am Spock",
+            description: "Win with spock 🖖",
             goal: 100,
             value: 11
         },
         {
-            title: "Cut off",
-            description: "Win with scissors",
+            title: "Probability theory",
+            description: "Win with random ❔",
             goal: 100,
-            value: 11
+            value: 100
         }
     ];
 
     return (
         <section className="flex justify-center items-center flex-col mt-2">
             <h2>Achievements</h2>
-            <span className="text-yellow-400">{componentMultiplication(5, <Star />)}</span>
+            <span className="text-yellow-400">
+                <Star/>
+                <Star/>
+                <Star/>
+                <Star/>
+                <Star/>
+            </span>
             <AchievementsList list={achievementsList} />
         </section>
     );

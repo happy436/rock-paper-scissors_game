@@ -95,3 +95,29 @@ h4{
     box-shadow: inset -6px -6px 12px rgba(255, 255, 255, 0.25),
         inset 6px 6px 12px rgba(0, 0, 0, 0.25);
 }
+
+.container-roll{
+    animation: roll 3s ease-out infinite;
+}
+
+.container-roll:hover{
+    animation:none;
+}
+
+@keyframes roll {
+    0%{
+        transform:rotate(0deg);
+    }
+    10%{
+        transform:rotate(-45deg);
+    }
+    75%{
+        
+    }
+    90%{
+        transform: rotate(405deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

@@ -28,10 +28,10 @@ function App() {
                 />
                 <ProtectedRoute path="/rating/:userId?" component={Rating} />
                 <ProtectedRoute path="/game" component={Game} /> */}
-                    <Route path="/rating" component={Rating} />
+                    <Route path="/rating/:userId?/:achievements?" component={Rating} />
                     <Route path="/game" component={Game} />
-                    <Route path="/achievements" component={Achievements} />
-                    <Route path="/profile" component={Profile} />
+                    <Route path="/achievements/:userId?" exact component={Achievements} />
+                    <Route path="/profile/:userId?" component={Profile} />
                     <Route path="/settings" component={Settings} />
                     <Route path="/login/:type?" component={Login} />
                     <Route path="/logout" component={LogOut} />

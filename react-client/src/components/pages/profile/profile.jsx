@@ -1,12 +1,38 @@
 import React from "react";
-/* import PropTypes from "prop-types"; */
 import Container from "./../../common/container";
+import Star from "./../../common/icon/star";
+import { useHistory, useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function Profile(props) {
+function Profile() {
+    const user = {
+        rating: 231,
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "User_name",
+        games: 100,
+        win: 30,
+        favoriteItem: "✌"
+    };
+    const history = useHistory();
+    console.log(history);
+    const { userId } = useParams();
+    const currentUser = true;
+    console.log(userId);
+    /* const user = useSelector(getUserById(userId)); */
     return (
-        <section className="flex justify-center content-center mt-2">
+        <section className="flex justify-center content-center mx-2 my-2">
             <Container maxWidth={400}>
-                <span className="text-[24px]">231</span>
+                <span className="text-[24px] flex justify-between items-center">
+                    <p>{user.rating}</p>
+                    <button
+                        onClick={() => currentUser ? history.push("/achievements") : history.push(`${userId}/achievements`)}
+                        className="text-yellow-400 container-roll"
+                    >
+                        <Star />
+                    </button>
+                </span>
                 <div className="flex flex-col items-center gap-[10px] mb-4">
                     <span className="">
                         <img
@@ -19,7 +45,7 @@ function Profile(props) {
                                 .substring(7)}.svg`}
                         />
                     </span>
-                    <span className="text-[20px]">User_name</span>
+                    <span className="text-[20px]">{user.name}</span>
                     <progress
                         className="rounded-full"
                         min="0"
@@ -30,23 +56,25 @@ function Profile(props) {
                 <div>
                     <span className="flex justify-between text-3xl">
                         <h4>Win rate:</h4>
-                        <p>72%</p>
+                        <p>{(user.win / user.games) * 100}%</p>
                     </span>
                     <span className="flex justify-between text-3xl">
                         <h4>Games:</h4>
-                        <p>100</p>
+                        <p>{user.games}</p>
                     </span>
                     <span className="flex justify-between text-3xl">
                         <h4>Win:</h4>
-                        <p>23</p>
+                        <p>{user.win}</p>
                     </span>
                     <span className="flex justify-between text-3xl">
                         <h4>Lose:</h4>
-                        <p>12</p>
+                        <p>{user.games - user.win}</p>
                     </span>
                     <span>
                         <h4>More often chose:</h4>
-                        <p className="text-[100px] text-center">✌</p>
+                        <p className="text-[100px] text-center">
+                            {user.favoriteItem}
+                        </p>
                     </span>
                 </div>
             </Container>
@@ -54,6 +82,8 @@ function Profile(props) {
     );
 }
 
-Profile.propTypes = {};
+Profile.propTypes = {
+    userId: PropTypes.string
+};
 
 export default Profile;
