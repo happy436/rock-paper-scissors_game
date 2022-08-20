@@ -1,7 +1,7 @@
 import React from "react";
-import Close from "../common/icon/close";
-import ArrowRight from "../common/select/arrowRight";
-import s from "./header.module.css";
+import Close from "../../common/icon/close";
+import ArrowRight from "../../common/select/arrowRight";
+import s from "../header.module.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 

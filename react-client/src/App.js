@@ -23,14 +23,20 @@ function App() {
                 <Switch>
                     {/*
                 <ProtectedRoute
-                    path="/profile/:userId?/:edit?"
+                    path="/profile/:userId?"
                     component={Profile}
                 />
-                <ProtectedRoute path="/rating/:userId?" component={Rating} />
+                <ProtectedRoute
+                    path="/achievements/:userId?" component={Achievements}
+                />
+                <ProtectedRoute path="/rating" component={Rating} />
                 <ProtectedRoute path="/game" component={Game} /> */}
-                    <Route path="/rating/:userId?/:achievements?" component={Rating} />
+                    <Route path="/rating" component={Rating} />
                     <Route path="/game" component={Game} />
-                    <Route path="/achievements/:userId?" exact component={Achievements} />
+                    <Route
+                        path="/achievements/:userId?"
+                        component={Achievements}
+                    />
                     <Route path="/profile/:userId?" component={Profile} />
                     <Route path="/settings" component={Settings} />
                     <Route path="/login/:type?" component={Login} />

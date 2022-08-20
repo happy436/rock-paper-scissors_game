@@ -6,7 +6,7 @@ function RatingItem({ user, index, userId }) {
     return (
         <li key={user._id} className="w-full">
             <Link
-                to={`/rating/${user._id}`}
+                to={`/profile/${user._id}`}
                 className={`flex items-center  rounded-full bg-white flex justify-between px-3 py-2 ${
                     userId === user._id && "border-green-500 border-4"
                 } ${index + 1 === 1 && "bg-yellow-300"} ${

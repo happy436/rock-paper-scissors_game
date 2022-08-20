@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import LogOut from "../common/icon/logOut";
 import Menu from "../common/icon/menu";
-import AsideMenu from "./asideMenu";
+import AsideMenu from "./components/asideMenu";
 import Profile from "../common/icon/profile";
 import Rating from "../common/icon/rating";
 import Setting from "../common/icon/setting";
 import Star from "../common/icon/star";
 import Home from "../common/icon/home";
+import { useSelector } from "react-redux";
+import { getCurrentUserId } from "./../../store/users";
 
 function Header() {
     const [showMenu, setShowMenu] = useState(false);
     const [expandMenu, setExpandMenu] = useState(false);
+    const currentUser = useSelector(getCurrentUserId());
     const menuList = [
         {
             name: "Main",
@@ -19,7 +22,7 @@ function Header() {
         },
         {
             name: "Profile",
-            url: "/profile",
+            url: `/profile/${currentUser}`,
             icon: <Profile />
         },
         {
@@ -29,7 +32,7 @@ function Header() {
         },
         {
             name: "Achievements",
-            url: "/achievements",
+            url: `/achievements/${currentUser}`,
             icon: <Star />
         },
         {

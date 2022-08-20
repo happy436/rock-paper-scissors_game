@@ -3,11 +3,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 /* import PropTypes from "prop-types"; */
 import RatingList from "./components/ratingList";
-import Profile from "./../profile/index";
-import Achievements from "./../achievements/achievements";
 
 function Rating(props) {
-    const { userId, achievements } = useParams();
+    const { userId } = useParams();
     console.log(userId);
     /* const currentUserId = useSelector(getCurrentUserId()); */
     const list = [
@@ -40,15 +38,7 @@ function Rating(props) {
 
     return (
         <section className="w-full mt-4 mb-5 container-center">
-            {userId ? (
-                achievements ? (
-                    userId /*  === currentUserId */ && <Achievements />
-                ) : (
-                    <Profile userId={userId} />
-                )
-            ) : (
-                <RatingList list={list} />
-            )}
+            <RatingList list={list} />
         </section>
     );
 }

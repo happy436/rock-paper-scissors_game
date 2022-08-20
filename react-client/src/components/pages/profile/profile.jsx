@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "./../../common/container";
 import Star from "./../../common/icon/star";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function Profile() {
@@ -15,23 +15,19 @@ function Profile() {
         win: 30,
         favoriteItem: "✌"
     };
-    const history = useHistory();
-    console.log(history);
     const { userId } = useParams();
-    const currentUser = true;
-    console.log(userId);
     /* const user = useSelector(getUserById(userId)); */
     return (
         <section className="flex justify-center content-center mx-2 my-2">
             <Container maxWidth={400}>
                 <span className="text-[24px] flex justify-between items-center">
                     <p>{user.rating}</p>
-                    <button
-                        onClick={() => currentUser ? history.push("/achievements") : history.push(`${userId}/achievements`)}
+                    <Link
+                        to={`/achievements/${userId}`}
                         className="text-yellow-400 container-roll"
                     >
                         <Star />
-                    </button>
+                    </Link>
                 </span>
                 <div className="flex flex-col items-center gap-[10px] mb-4">
                     <span className="">
