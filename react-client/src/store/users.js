@@ -1,9 +1,30 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
 import authService from "../services/auth.service";
 import localStorageService from "../services/localStorage.service";
 import userService from "../services/user.service";
 import { generetaAuthError } from "../utils/generateAuthError";
 import history from "../utils/history";
+
+/* const initialState = localStorageService.getAccessToken()
+    ? {
+        entities: null,
+        isLoading: true,
+        error: null,
+        auth: {
+            userId: localStorageService.getUserId()
+        },
+        isLoggedIn: true,
+        dataLoaded: false
+    }
+    : {
+        entities: null,
+        isLoading: false,
+        error: null,
+        auth: null,
+        isLoggedIn: false,
+        dataLoaded: false
+    }; */
 
 const initialState = localStorageService.getAccessToken()
     ? {
@@ -20,7 +41,9 @@ const initialState = localStorageService.getAccessToken()
         entities: null,
         isLoading: false,
         error: null,
-        auth: null,
+        auth: {
+            userId: nanoid()
+        },
         isLoggedIn: false,
         dataLoaded: false
     };
