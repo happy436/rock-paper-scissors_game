@@ -4,7 +4,7 @@ import RatingItem from "./ratingItem";
 
 function RatingList({ list, userId }) {
     return (
-        <ul className="container-center flex-col w-full gap-[20px] max-w-[400px] px-4">
+        <ul className="container-center flex-col w-full max-w-[400px] gap-[20px] px-4 mb-10 2xl:max-w-[600px] 2xl:w-[600px]">
             {list
                 .sort((a, b) => b.rating - a.rating)
                 .map((user, index) => {
