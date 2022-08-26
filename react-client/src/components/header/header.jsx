@@ -42,7 +42,7 @@ function Header() {
         }
     ];
     return (
-        <header className="flex fixed justify-between pl-[20px] w-full top-0 pr-[20px] pt-[20px] basis-1/12">
+        <header className="flex fixed justify-between pl-[20px] w-full top-0 pr-[20px] z-20 pt-[20px] basis-1/12">
             <span className="relative">
                 <button
                     className="btn p-5 rounded-[32px] h-[64px]"

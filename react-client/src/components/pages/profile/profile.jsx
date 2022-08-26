@@ -18,7 +18,7 @@ function Profile() {
     const { userId } = useParams();
     /* const user = useSelector(getUserById(userId)); */
     return (
-        <section className="flex justify-center content-center mx-2 my-2">
+        <section className="flex justify-center content-center mt-[100px] w-full mb-[20px] mx-[20px]">
             <Container maxWidth={400}>
                 <span className="text-[24px] flex justify-between items-center">
                     <p>{user.rating}</p>

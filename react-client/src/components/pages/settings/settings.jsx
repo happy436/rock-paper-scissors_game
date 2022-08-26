@@ -3,7 +3,7 @@ import Container from "./../../common/container";
 
 function Settings(props) {
     return (
-        <section className="flex justify-center content-center mx-2 my-2">
+        <section className="flex justify-center content-center mt-[100px] my-2">
             <Container maxWidth={400}>
                 <div className="flex justify-space items-center flex-col gap-[100px]">
                     <div className="flex justify-space items-center flex-col">

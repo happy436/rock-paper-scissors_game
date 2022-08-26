@@ -13,6 +13,8 @@ body {
     font-family: "Kavoon", cursive;
     background-color: theme("colors.indigo.400");
     color: #fff;
+    position: relative;
+    height: 100vh;
 }
 
 #root {
@@ -23,6 +25,8 @@ body {
     text-shadow: 0 0 4px #000; /* horizontal-offset vertical-offset 'blur' colour */
     -moz-text-shadow: 0 0 4px #000;
     -webkit-text-shadow: 0 0 4px #000;
+    /* border: solid 1px red; */
+    box-sizing: border-box;
 }
 
 progress {
@@ -45,19 +49,19 @@ progress::-moz-progress-bar {
     border-radius: 20px;
 }
 
-h1{
+h1 {
     font-size: 40px;
 }
 
-h2{
+h2 {
     font-size: 35px;
 }
 
-h3{
+h3 {
     font-size: 30px;
 }
 
-h4{
+h4 {
     font-size: 25px;
 }
 
@@ -96,28 +100,45 @@ h4{
         inset 6px 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-.container-roll{
+.container-roll {
     animation: roll 3s ease-out infinite;
 }
 
-.container-roll:hover{
-    animation:none;
+.container-roll:hover {
+    animation: none;
+}
+
+.from-red-600 {
+    --tw-gradient-from: #dc2626;
+    --tw-gradient-to: rgb(220 38 38 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-lime-600 {
+    --tw-gradient-from: #65a30d;
+    --tw-gradient-to: rgb(101 163 13 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-gray-600 {
+    --tw-gradient-from: #4b5563;
+    --tw-gradient-to: rgb(75 85 99 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 @keyframes roll {
-    0%{
-        transform:rotate(0deg);
+    0% {
+        transform: rotate(0deg);
     }
-    10%{
-        transform:rotate(-45deg);
+    10% {
+        transform: rotate(-45deg);
     }
-    75%{
-        
+    75% {
     }
-    90%{
+    90% {
         transform: rotate(405deg);
     }
-    100%{
+    100% {
         transform: rotate(360deg);
     }
 }

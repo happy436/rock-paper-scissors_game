@@ -7,7 +7,7 @@ function Menu({ list, handleClick }) {
     const rotatedDegree = 360 / menuList.length;
     return (
         <div className="menu">
-            <ul>
+            <ul className="menu_list">
                 {menuList.map((item, index) => (
                     <li
                         className="item"
@@ -17,7 +17,17 @@ function Menu({ list, handleClick }) {
                             }deg) skew(${90 - rotatedDegree}deg)`
                         }}
                         key={item}
-                        onClick={() => handleClick(item)}
+                        onClick={() => {
+                            if (item === "❔") {
+                                handleClick(
+                                    list[
+                                        Math.floor(Math.random() * list.length)
+                                    ]
+                                );
+                            } else {
+                                handleClick(item);
+                            }
+                        }}
                     >
                         <span
                             style={{

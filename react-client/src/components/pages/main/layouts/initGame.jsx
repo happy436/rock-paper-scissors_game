@@ -1,22 +1,24 @@
 import { nanoid } from "nanoid";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Selector from "../../../common/select/selector";
 
 function InitGame(props) {
-    const [gameType, setGameType] = useState("classic");
+    const [gameType, setGameType] = useState("3 - classic");
     const gameTypes = [
         { _id: nanoid(), name: "3 - classic" },
         { _id: nanoid(), name: "5 - add lizard, spock" }
     ];
+    useEffect(() => console.log(gameType));
     return (
         <section className="container-center flex flex-col gap-[20px]">
-            <button
+            <Link
                 className="btn rounded-[40px] px-[40px] py-[20px] container-convex"
-                onClick={() => console.log(gameType)}
+                to={`/game/${gameType}`}
             >
                 Play
-            </button>
-            <Selector onChange={setGameType} options={gameTypes} />
+            </Link>
+            <Selector onChange={setGameType} options={gameTypes} selectedOption={gameType}/>
         </section>
     );
 }

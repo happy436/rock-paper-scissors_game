@@ -37,7 +37,7 @@ function Rating(props) {
     ];
 
     return (
-        <section className="w-full mt-4 mb-5 container-center">
+        <section className="w-full mt-[100px] mb-5 container-center">
             <RatingList list={list} />
         </section>
     );

@@ -19,7 +19,7 @@ function App() {
         <AppLoader>
             <h1 className="hidden">Rock, paper, scissors</h1>
             <Header />
-            <main className="mt-[100px]">
+            <main className="flex justify-center w-full">
                 <Switch>
                     {/*
                 <ProtectedRoute
@@ -32,7 +32,7 @@ function App() {
                 <ProtectedRoute path="/rating" component={Rating} />
                 <ProtectedRoute path="/game" component={Game} /> */}
                     <Route path="/rating" component={Rating} />
-                    <Route path="/game" component={Game} />
+                    <Route path="/game/:type?" component={Game} />
                     <Route
                         path="/achievements/:userId?"
                         component={Achievements}

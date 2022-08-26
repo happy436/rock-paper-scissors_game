@@ -50,7 +50,7 @@ function Achievements(props) {
     ];
 
     return (
-        <section className="flex justify-center items-center flex-col mt-2">
+        <section className="flex justify-center items-center flex-col mt-[100px]">
             <h2>Achievements</h2>
             <span className="text-yellow-400">
                 <Star/>

@@ -4,10 +4,10 @@ import InitLogin from "./layouts/initLogin";
 /* import s from "./main.module.css"; */
 
 const Main = () => {
-    const isLoggedIn = false;
+    const isLoggedIn = true;
 
     return (
-        <section className={`container-center flex flex-col gap-[40px] mt-4`}>
+        <section className={`container-center flex flex-col gap-[40px] mt-[200px]`}>
             <span className="text-[60px] hidden">🤏✌✋✊🖖</span>
             <span className="container-center flex-col">
                 <h1 className="text-5xl text-center">✊ ✋ ✌</h1>
