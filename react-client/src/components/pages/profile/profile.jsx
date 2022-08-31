@@ -40,13 +40,13 @@ function Profile({
                             src={image}
                         />
                     </span>
-                    <span className="text-[20px]">{name}</span>
-                    <progress
+                    <h2>{name}</h2>
+                    {/* <progress
                         className="rounded-full"
                         min="0"
                         max="100"
                         value="23"
-                    />
+                    /> */}
                 </div>
                 <div>
                     <span className="flex justify-between text-3xl">
