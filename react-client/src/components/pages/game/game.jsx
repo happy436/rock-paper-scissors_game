@@ -1,59 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getGameTypes, getRules } from "../../../store/gameData";
 import randomSelector from "../../../utils/randomSelector";
 import Menu from "../../common/petal_menu/menu";
-/* import history from "../../../utils/history"; */
 
 function Game(props) {
     const [result, setResult] = useState(false);
     const { type } = useParams();
     const [select, setSelect] = useState(false);
     const [time, setTime] = useState(15);
-    const list = {
-        "3 - classic": ["✌", "✋", "✊"],
-        "5 - add lizard, spock": ["🤏", "🖖", "✌", "✋", "✊"]
-    };
-    const [botSelect] = useState(randomSelector(list[type]));
-    const win = "win";
-    const lose = "lose";
-    const draw = "draw";
-    const rules = {
-        "✌": [
-            { "✋": win },
-            { "✊": lose },
-            { "✌": draw },
-            { "🤏": win },
-            { "🖖": lose }
-        ],
-        "✋": [
-            { "✋": draw },
-            { "✊": win },
-            { "✌": lose },
-            { "🤏": lose },
-            { "🖖": win }
-        ],
-        "✊": [
-            { "✋": lose },
-            { "✊": draw },
-            { "✌": win },
-            { "🤏": win },
-            { "🖖": lose }
-        ],
-        "🤏": [
-            { "✋": win },
-            { "✊": lose },
-            { "✌": lose },
-            { "🤏": draw },
-            { "🖖": win }
-        ],
-        "🖖": [
-            { "✋": lose },
-            { "✊": win },
-            { "✌": win },
-            { "🤏": lose },
-            { "🖖": draw }
-        ]
-    };
+    const listOfGameTypes = useSelector(getGameTypes());
+    const currentList = Object.values(
+        listOfGameTypes.find((item) => {
+            return Object.keys(item)[0] === type;
+        })
+    )[0];
+    const [botSelect] = useState(randomSelector(currentList));
+    const rules = useSelector(getRules());
     useEffect(() => {
         if (time > 0 && !select) {
             setTimeout(() => setTime(time - 1), 1000);
@@ -62,7 +26,11 @@ function Game(props) {
     useEffect(() => {
         if (select) {
             const findResult = Object.values(
-                rules[select].find((item) => Object.keys(item)[0] === botSelect)
+                rules[select].find((item) => {
+                    console.log(Object.keys(item)[0]);
+                    console.log(botSelect);
+                    return null;
+                })
             )[0];
             setResult(findResult);
             if (findResult === "lose") {
@@ -81,7 +49,7 @@ function Game(props) {
         <>
             <section className="flex flex-col items-center mt-[100px]">
                 {!select && time === 0 ? (
-                    setSelect(randomSelector(list[type]))
+                    setSelect(randomSelector(currentList))
                 ) : select ? (
                     <>
                         <h3 className="text-[70px]">
@@ -97,8 +65,7 @@ function Game(props) {
                     <>
                         <span className="text-[70px]">{time}</span>
                         <span>
-                            <Menu list={list[type]} handleClick={setSelect} />
-                            {/* <Menu list={["✌", "✋", "✊", "❔"]} /> */}
+                            <Menu list={currentList} handleClick={setSelect} />
                         </span>
                     </>
                 )}

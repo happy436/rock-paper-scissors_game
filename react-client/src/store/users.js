@@ -6,6 +6,111 @@ import userService from "../services/user.service";
 import { generetaAuthError } from "../utils/generateAuthError";
 import history from "../utils/history";
 
+const testState = [
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(
+            Math.random() + 1
+        )
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Alex",
+        history: [
+            { scissors: [{ win: 20 }, { lose: 11 }, { draw: 12 }] },
+            { rock: [{ win: 30 }, { lose: 10 }, { draw: 10 }] },
+            { spock: [{ win: 10 }, { lose: 10 }, { draw: 9 }] },
+            { lizard: [{ win: 10 }, { lose: 10 }, { draw: 10 }] },
+            { paper: [{ win: 20 }, { lose: 10 }, { draw: 10 }] },
+            { random: [{ win: 20 }, { lose: 10 }, { draw: 10 }] }
+        ]
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(
+            Math.random() + 1
+        )
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Shepard",
+        history: [
+            { scissors: [{ win: 10 }, { lose: 11 }, { draw: 12 }] },
+            { rock: [{ win: 10 }, { lose: 13 }, { draw: 13 }] },
+            { spock: [{ win: 13 }, { lose: 10 }, { draw: 9 }] },
+            { lizard: [{ win: 13 }, { lose: 13 }, { draw: 10 }] },
+            { paper: [{ win: 10 }, { lose: 10 }, { draw: 10 }] },
+            { random: [{ win: 20 }, { lose: 10 }, { draw: 10 }] }
+        ]
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(
+            Math.random() + 1
+        )
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Nami",
+        history: [
+            { scissors: [{ win: 10 }, { lose: 11 }, { draw: 12 }] },
+            { rock: [{ win: 14 }, { lose: 12 }, { draw: 10 }] },
+            { spock: [{ win: 10 }, { lose: 123 }, { draw: 9 }] },
+            { lizard: [{ win: 22 }, { lose: 10 }, { draw: 10 }] },
+            { paper: [{ win: 10 }, { lose: 11 }, { draw: 10 }] },
+            { random: [{ win: 20 }, { lose: 10 }, { draw: 10 }] }
+        ]
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(
+            Math.random() + 1
+        )
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Lyly",
+        history: [
+            { scissors: [{ win: 10 }, { lose: 131 }, { draw: 12 }] },
+            { rock: [{ win: 10 }, { lose: 10 }, { draw: 10 }] },
+            { spock: [{ win: 32 }, { lose: 33 }, { draw: 9 }] },
+            { lizard: [{ win: 22 }, { lose: 10 }, { draw: 10 }] },
+            { paper: [{ win: 10 }, { lose: 10 }, { draw: 10 }] },
+            { random: [{ win: 20 }, { lose: 10 }, { draw: 10 }] }
+        ]
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(
+            Math.random() + 1
+        )
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Qwer",
+        history: [
+            { scissors: [{ win: 1 }, { lose: 11 }, { draw: 12 }] },
+            { rock: [{ win: 10 }, { lose: 23 }, { draw: 10 }] },
+            { spock: [{ win: 11 }, { lose: 10 }, { draw: 9 }] },
+            { lizard: [{ win: 10 }, { lose: 10 }, { draw: 10 }] },
+            { paper: [{ win: 0 }, { lose: 12 }, { draw: 10 }] },
+            { random: [{ win: 20 }, { lose: 10 }, { draw: 10 }] }
+        ]
+    },
+    {
+        _id: "qwerty",
+        image: `https://avatars.dicebear.com/api/avataaars/${(
+            Math.random() + 1
+        )
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Loli",
+        history: [
+            { scissors: [{ win: 10 }, { lose: 11 }, { draw: 12 }] },
+            { rock: [{ win: 31 }, { lose: 10 }, { draw: 10 }] },
+            { spock: [{ win: 2 }, { lose: 10 }, { draw: 9 }] },
+            { lizard: [{ win: 10 }, { lose: 22 }, { draw: 10 }] },
+            { paper: [{ win: 10 }, { lose: 33 }, { draw: 10 }] },
+            { random: [{ win: 150 }, { lose: 10 }, { draw: 10 }] }
+        ]
+    }
+];
+
 /* const initialState = localStorageService.getAccessToken()
     ? {
         entities: null,
@@ -38,11 +143,11 @@ const initialState = localStorageService.getAccessToken()
         dataLoaded: false
     }
     : {
-        entities: null,
+        entities: testState,
         isLoading: false,
         error: null,
         auth: {
-            userId: nanoid()
+            userId: "qwerty"
         },
         isLoggedIn: false,
         dataLoaded: false

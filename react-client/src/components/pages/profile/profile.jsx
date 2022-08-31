@@ -1,27 +1,30 @@
 import React from "react";
 import Container from "./../../common/container";
 import Star from "./../../common/icon/star";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import "./profile.css";
 
-function Profile() {
-    const user = {
-        rating: 231,
-        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
-            .toString(36)
-            .substring(7)}.svg`,
-        name: "User_name",
-        games: 100,
-        win: 30,
-        favoriteItem: "✌"
-    };
-    const { userId } = useParams();
-    /* const user = useSelector(getUserById(userId)); */
+function Profile({
+    userId,
+    gamesCount,
+    favouriteItem,
+    winGame,
+    loseGame,
+    history,
+    image,
+    name,
+    gameItems,
+    winScalePoints,
+    loseScalePoint
+}) {
     return (
-        <section className="flex justify-center content-center mt-[100px] w-full mb-[20px] mx-[20px]">
+        <section className="flex justify-center content-center mt-[100px] w-full h-full mb-[20px] mx-[20px] profile">
             <Container maxWidth={400}>
                 <span className="text-[24px] flex justify-between items-center">
-                    <p>{user.rating}</p>
+                    <p>
+                        {winGame * winScalePoints + loseGame * loseScalePoint}
+                    </p>
                     <Link
                         to={`/achievements/${userId}`}
                         className="text-yellow-400 container-roll"
@@ -34,14 +37,10 @@ function Profile() {
                         <img
                             className="h-[100px] w-[100px] rounded-full bg-slate-200"
                             alt="profile image"
-                            src={`https://avatars.dicebear.com/api/avataaars/${(
-                                Math.random() + 1
-                            )
-                                .toString(36)
-                                .substring(7)}.svg`}
+                            src={image}
                         />
                     </span>
-                    <span className="text-[20px]">{user.name}</span>
+                    <span className="text-[20px]">{name}</span>
                     <progress
                         className="rounded-full"
                         min="0"
@@ -52,25 +51,61 @@ function Profile() {
                 <div>
                     <span className="flex justify-between text-3xl">
                         <h4>Win rate:</h4>
-                        <p>{(user.win / user.games) * 100}%</p>
+                        <p>
+                            {((winGame * 100) / (winGame + loseGame)).toFixed(
+                                1
+                            )}
+                            %
+                        </p>
                     </span>
                     <span className="flex justify-between text-3xl">
                         <h4>Games:</h4>
-                        <p>{user.games}</p>
+                        <p>{gamesCount}</p>
                     </span>
                     <span className="flex justify-between text-3xl">
                         <h4>Win:</h4>
-                        <p>{user.win}</p>
+                        <p>{winGame}</p>
                     </span>
                     <span className="flex justify-between text-3xl">
                         <h4>Lose:</h4>
-                        <p>{user.games - user.win}</p>
+                        <p>{loseGame}</p>
                     </span>
                     <span>
-                        <h4>More often chose:</h4>
+                        <h4>Favourite:</h4>
                         <p className="text-[100px] text-center">
-                            {user.favoriteItem}
+                            {favouriteItem}
                         </p>
+                    </span>
+                    <span className="text-3xl">
+                        <span className="flex items-center justify-evenly">
+                            <p>Item</p>
+                            <p>W/L/D</p>
+                        </span>
+                        {history.map((item) => {
+                            return (
+                                <span
+                                    key={Object.keys(item)}
+                                    className="grid grid-cols-2 justify-items-center"
+                                >
+                                    <p>
+                                        {
+                                            Object.values(
+                                                gameItems.find(
+                                                    (i) =>
+                                                        Object.keys(i)[0] ===
+                                                        Object.keys(item)[0]
+                                                )
+                                            )[0]
+                                        }
+                                    </p>
+                                    <p>
+                                        {Object.values(item)[0]
+                                            .map((i) => Object.values(i))
+                                            .join("/")}
+                                    </p>
+                                </span>
+                            );
+                        })}
                     </span>
                 </div>
             </Container>
@@ -79,7 +114,18 @@ function Profile() {
 }
 
 Profile.propTypes = {
-    userId: PropTypes.string
+    userId: PropTypes.string,
+    gamesCount: PropTypes.number,
+    favouriteItem: PropTypes.string,
+    winGame: PropTypes.number,
+    history: PropTypes.array,
+    loseGame: PropTypes.number,
+    rating: PropTypes.number,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    gameItems: PropTypes.array,
+    loseScalePoint: PropTypes.number,
+    winScalePoints: PropTypes.number
 };
 
 export default Profile;

@@ -16,9 +16,11 @@ function AsideMenu({
         setShowMenu((prev) => !prev);
         setExpandMenu(false);
     };
+    const style = { height: `${(itemsList.length + 2) * 47}px`, zIndex: 20 };
     return (
         <aside
-            className={`${s.aside} ${showMenu && s.active} ${
+            style={showMenu ? style : null}
+            className={`${s.aside}  ${
                 expandMenu && s.expandMenu
             } absolute top-0 left-0 flex flex-nowrap container-concave bg-indigo-600 flex-col p-5 rounded-[32px]`}
         >
