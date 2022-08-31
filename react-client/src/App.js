@@ -10,8 +10,8 @@ import Rating from "./components/pages/rating";
 import Header from "./components/header";
 /* import ProtectedRoute from "./components/common/protectedRoute"; */
 import Settings from "./components/pages/settings/settings";
-import ProfileWrapper from "./components/pages/profile/profileWrapper";
 import AchievementsContainer from "./components/pages/achievements/achievementsContainer";
+import ProfileContainer from "./components/pages/profile/profileContainer";
 
 function App() {
     const isLoggedIn = false;
@@ -37,11 +37,18 @@ function App() {
                         path="/achievements/:userId?"
                         component={AchievementsContainer}
                     />
-                    <Route path="/profile/:userId?" component={ProfileWrapper} />
+                    <Route
+                        path="/profile/:userId?"
+                        component={ProfileContainer}
+                    />
                     <Route path="/settings" component={Settings} />
                     <Route path="/login/:type?" component={Login} />
                     <Route path="/logout" component={LogOut} />
-                    <Route path={isLoggedIn ? "/home" : "/"} exact component={Main} />
+                    <Route
+                        path={isLoggedIn ? "/home" : "/"}
+                        exact
+                        component={Main}
+                    />
                     <Redirect to={isLoggedIn ? "/home" : "/"} />
                 </Switch>
             </main>

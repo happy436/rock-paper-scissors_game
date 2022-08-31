@@ -5,7 +5,7 @@ import { getCurrentUserId, getUserById } from "../../../store/users";
 import { useSelector } from "react-redux";
 import { getGameItems, getGameRatingScale } from "../../../store/gameData";
 
-function ProfileWrapper({ userId }) {
+function ProfileContainer({ userId }) {
     const selfUserId = useSelector(getCurrentUserId());
     const ratingScalePoints = useSelector(getGameRatingScale());
     const winScalePoints = ratingScalePoints.win;
@@ -31,12 +31,7 @@ function ProfileWrapper({ userId }) {
                 .reduce((a, b) => a + b)
         );
     });
-    /* .forEach((item) => {
-            const icon = Object.values(gameItems.find(i => Object.keys(i)[0] === Object.keys(item)[0]))[0];
-            const name = Object.keys(item)[0];
-            JSON.parse(JSON.stringify(item).replaceAll(name, icon));
-        });
-    console.log(sortedHistory); */
+
     const favouriteItem = Object.values(
         gameItems.find(
             (item) => Object.keys(item)[0] === Object.keys(sortedHistory[0])[0]
@@ -86,6 +81,6 @@ function ProfileWrapper({ userId }) {
     );
 }
 
-ProfileWrapper.propTypes = { userId: PropTypes.string };
+ProfileContainer.propTypes = { userId: PropTypes.string };
 
-export default ProfileWrapper;
+export default ProfileContainer;
