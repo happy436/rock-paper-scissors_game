@@ -6,6 +6,99 @@ import userService from "../services/user.service";
 import { generetaAuthError } from "../utils/generateAuthError";
 import history from "../utils/history";
 
+const testState = [
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Alex",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 10, lose: 10, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Shepard",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 10, lose: 10, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Nami",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 10, lose: 10, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Lyly",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 10, lose: 10, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Qwer",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 10, lose: 10, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: "qwerty",
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Loli",
+        history: {
+            scissors: { win: 101, lose: 11, draw: 12 },
+            rock: { win: 1, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 10, lose: 10, draw: 10 },
+            paper: { win: 10, lose: 10, draw: 10 },
+            random: { win: 10, lose: 10, draw: 10 }
+        }
+    }
+];
+
 /* const initialState = localStorageService.getAccessToken()
     ? {
         entities: null,
@@ -38,11 +131,11 @@ const initialState = localStorageService.getAccessToken()
         dataLoaded: false
     }
     : {
-        entities: null,
+        entities: testState,
         isLoading: false,
         error: null,
         auth: {
-            userId: nanoid()
+            userId: "qwerty"
         },
         isLoggedIn: false,
         dataLoaded: false
@@ -157,18 +250,18 @@ export const updateUser = (payload) => async (dispatch) => {
     try {
         const { content } = await userService.update(payload);
         dispatch(userUpdateSuccessed(content));
-        history.push(`/users/${content._id}`);
     } catch (error) {
         dispatch(userUpdateFailed(error.message));
     }
 };
-
-export const getUsersList = () => (state) => state.users.entities;
 export const getCurrentUserData = () => (state) => {
     return state.users.entities
         ? state.users.entities.find((u) => u._id === state.users.auth.userId)
         : null;
 };
+
+export const getUsersList = () => (state) => state.users.entities;
+
 export const getUserById = (userId) => (state) => {
     if (state.users.entities) {
         return state.users.entities.find((u) => u._id === userId);

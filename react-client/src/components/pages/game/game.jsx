@@ -1,88 +1,62 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getGameItems, getGameTypes, getRules } from "../../../store/gameData";
+import { getCurrentUserData, updateUser } from "../../../store/users";
+import history from "../../../utils/history";
 import randomSelector from "../../../utils/randomSelector";
 import Menu from "../../common/petal_menu/menu";
-/* import history from "../../../utils/history"; */
 
 function Game(props) {
+    const userData = useSelector(getCurrentUserData());
     const [result, setResult] = useState(false);
+    const dispatch = useDispatch();
     const { type } = useParams();
-    const [select, setSelect] = useState(false);
+    const [selectedIcon, setSelectedIcon] = useState(false);
     const [time, setTime] = useState(15);
-    const list = {
-        "3 - classic": ["✌", "✋", "✊"],
-        "5 - add lizard, spock": ["🤏", "🖖", "✌", "✋", "✊"]
-    };
-    const [botSelect] = useState(randomSelector(list[type]));
-    const win = "win";
-    const lose = "lose";
-    const draw = "draw";
-    const rules = {
-        "✌": [
-            { "✋": win },
-            { "✊": lose },
-            { "✌": draw },
-            { "🤏": win },
-            { "🖖": lose }
-        ],
-        "✋": [
-            { "✋": draw },
-            { "✊": win },
-            { "✌": lose },
-            { "🤏": lose },
-            { "🖖": win }
-        ],
-        "✊": [
-            { "✋": lose },
-            { "✊": draw },
-            { "✌": win },
-            { "🤏": win },
-            { "🖖": lose }
-        ],
-        "🤏": [
-            { "✋": win },
-            { "✊": lose },
-            { "✌": lose },
-            { "🤏": draw },
-            { "🖖": win }
-        ],
-        "🖖": [
-            { "✋": lose },
-            { "✊": win },
-            { "✌": win },
-            { "🤏": lose },
-            { "🖖": draw }
-        ]
-    };
+    const gameItems = useSelector(getGameItems());
+    const listOfGameTypes = useSelector(getGameTypes());
+    const convertedListItemstoIcons = listOfGameTypes[type].map(
+        (i) => gameItems[i]
+    );
+    const currentList = [...convertedListItemstoIcons, "❔"];
+    const [botSelected] = useState(randomSelector(convertedListItemstoIcons));
+    const rules = useSelector(getRules());
     useEffect(() => {
-        if (time > 0 && !select) {
+        if (time > 0 && !selectedIcon) {
             setTimeout(() => setTime(time - 1), 1000);
         }
     }, [time]);
     useEffect(() => {
-        if (select) {
-            const findResult = Object.values(
-                rules[select].find((item) => Object.keys(item)[0] === botSelect)
-            )[0];
+        if (selectedIcon) {
+            const selectedName =
+                Object.keys(gameItems)[
+                    Object.values(gameItems).findIndex(
+                        (i) => i === selectedIcon
+                    )
+                ];
+            const botSelectedName =
+                Object.keys(gameItems)[
+                    Object.values(gameItems).findIndex((i) => i === botSelected)
+                ];
+            const findResult = rules[selectedName][botSelectedName];
             setResult(findResult);
-            if (findResult === "lose") {
-                console.log("lose");
-                /* dispatch(action(findResult)) */
-                /* make history match and add in profile data like Scissors: W / L */
-            } else {
-                console.log("win");
-            }
+            dispatch(
+                updateUser({
+                    history: { [selectedName]: { [findResult]: userData.history[selectedName][findResult] + 1 } }
+                })
+            );
             setTimeout(() => {
-                /* history.push("/"); */
+                history.push("/");
             }, 3000);
         }
-    }, [select]);
+    }, [selectedIcon]);
     return (
         <>
             <section className="flex flex-col items-center mt-[100px]">
-                {!select && time === 0 ? (
-                    setSelect(randomSelector(list[type]))
-                ) : select ? (
+                {!selectedIcon && time === 0 ? (
+                    setSelectedIcon(randomSelector(convertedListItemstoIcons))
+                ) : selectedIcon ? (
                     <>
                         <h3 className="text-[70px]">
                             {result &&
@@ -90,15 +64,17 @@ function Game(props) {
                                     result.slice(1)}
                         </h3>
                         <span className="text-[70px]">
-                            {select} vs {botSelect}
+                            {selectedIcon} vs {botSelected}
                         </span>
                     </>
                 ) : (
                     <>
                         <span className="text-[70px]">{time}</span>
                         <span>
-                            <Menu list={list[type]} handleClick={setSelect} />
-                            {/* <Menu list={["✌", "✋", "✊", "❔"]} /> */}
+                            <Menu
+                                list={currentList}
+                                handleClick={setSelectedIcon}
+                            />
                         </span>
                     </>
                 )}

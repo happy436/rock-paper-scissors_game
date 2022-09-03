@@ -3,12 +3,11 @@ import "./menu.css";
 import PropTypes from "prop-types";
 
 function Menu({ list, handleClick }) {
-    const menuList = [...list, "❔"];
-    const rotatedDegree = 360 / menuList.length;
+    const rotatedDegree = 360 / list.length;
     return (
         <div className="menu">
             <ul className="menu_list">
-                {menuList.map((item, index) => (
+                {list.map((item, index) => (
                     <li
                         className="item"
                         style={{

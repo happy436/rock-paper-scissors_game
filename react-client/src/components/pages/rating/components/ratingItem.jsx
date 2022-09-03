@@ -1,14 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
-function RatingItem({ user, index, userId }) {
+function RatingItem({ user, index, handleSelectUser, currentUserId }) {
     return (
         <li key={user._id} className="w-full">
-            <Link
-                to={`/profile/${user._id}`}
+            <span
+                onClick={() => handleSelectUser(user._id)}
                 className={`flex items-center  rounded-full bg-white flex justify-between px-3 py-2 ${
-                    userId === user._id && "border-green-500 border-4"
+                    currentUserId === user._id && "border-green-500 border-4"
                 } ${index + 1 === 1 && "bg-yellow-300"} ${
                     index + 1 === 2 && "bg-slate-300"
                 } ${index + 1 === 3 && "bg-orange-500"}`}
@@ -23,7 +22,7 @@ function RatingItem({ user, index, userId }) {
                 <span>
                     <p className="text-[20px]">{user.rating}</p>
                 </span>
-            </Link>
+            </span>
         </li>
     );
 }
@@ -31,7 +30,8 @@ function RatingItem({ user, index, userId }) {
 RatingItem.propTypes = {
     index: PropTypes.number,
     user: PropTypes.object,
-    userId: PropTypes.string
+    currentUserId: PropTypes.string,
+    handleSelectUser: PropTypes.func
 };
 
 export default RatingItem;
