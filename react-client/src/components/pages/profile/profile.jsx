@@ -89,13 +89,7 @@ function Profile({
                                 >
                                     <p>
                                         {
-                                            Object.values(
-                                                gameItems.find(
-                                                    (i) =>
-                                                        Object.keys(i)[0] ===
-                                                        Object.keys(item)[0]
-                                                )
-                                            )[0]
+                                            gameItems[Object.keys(item)[0]]
                                         }
                                     </p>
                                     <p>
@@ -123,7 +117,7 @@ Profile.propTypes = {
     rating: PropTypes.number,
     image: PropTypes.string,
     name: PropTypes.string,
-    gameItems: PropTypes.array,
+    gameItems: PropTypes.object,
     loseScalePoint: PropTypes.number,
     winScalePoints: PropTypes.number
 };

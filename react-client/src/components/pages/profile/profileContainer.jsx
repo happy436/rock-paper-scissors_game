@@ -33,11 +33,7 @@ function ProfileContainer({ userId }) {
         );
     });
 
-    const favouriteItem = Object.values(
-        gameItems.find(
-            (item) => Object.keys(item)[0] === Object.keys(sortedHistory[0])[0]
-        )
-    )[0];
+    const favouriteItem = gameItems[Object.keys(sortedHistory[0])[0]];
     return (
         <>
             <Profile
