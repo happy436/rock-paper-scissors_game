@@ -10,7 +10,7 @@
 
 .label {
     position: absolute;
-    left: 55px;
+    left: 20px;
     top: 14px;
     transition: all 0.2s;
     padding: 0 2px;
@@ -19,9 +19,7 @@
 }
 
 .text-input {
-    background-color: inherit;
     padding: 0.8rem;
-    width: 70%;
     height: 100%;
     border: 2px solid theme("colors.indigo.400");
     border-radius: 5px;
@@ -53,6 +51,7 @@
 .text-input:focus + label,
 .filled {
     top: -10px;
+    left: 20px;
     color: #fff;
     font-size: 14px;
 }

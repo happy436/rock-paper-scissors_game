@@ -3,6 +3,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import AppLoader from "./components/hoc/appLoader";
 import Main from "./components/pages/main";
+import LogOut from "./components/pages/login/logOut";
+import Login from "./components/pages/login/login";
 import Game from "./components/pages/game";
 import Rating from "./components/pages/rating";
 import Header from "./components/header";
@@ -10,8 +12,6 @@ import Header from "./components/header";
 import Settings from "./components/pages/settings/settings";
 import AchievementsContainer from "./components/pages/achievements/achievementsContainer";
 import ProfileContainer from "./components/pages/profile/profileContainer";
-import Login from "./components/pages/login/login";
-import LogOut from "./components/pages/login/logOut";
 
 function App() {
     const isLoggedIn = false;
