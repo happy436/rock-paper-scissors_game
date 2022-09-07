@@ -7,9 +7,9 @@ const Main = () => {
     const isLoggedIn = false;
     return (
         <section className={`container-center flex flex-col gap-[40px] mt-[200px]`}>
-            <span className="text-[60px] hidden">🤏✌✋✊🖖</span>
+            <span className="text-[60px] hidden">✊🏻 ✌🏻 ✋🏻 🤏🏻 🖖🏻</span>
             <span className="container-center flex-col">
-                <h1 className="text-5xl text-center">✊ ✋ ✌</h1>
+                <h1 className="text-5xl text-center">✊🏻 ✋🏻 ✌🏻</h1>
                 <h3>and another</h3>
             </span>
             {!isLoggedIn ? <InitLogin /> : <InitGame />}

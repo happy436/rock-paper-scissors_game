@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import SignUp from "./signUp";
+import SignIn from "./signIn";
 /* import LoginForm from "../components/ui/loginForm";
 import RegisterForm from "../components/ui/registerForm"; */
 import "./style.css";
@@ -16,6 +17,7 @@ const Login = () => {
             prevState === "register" ? "login" : "register"
         );
     };
+    console.log(toggleFormType);
 
     return (
         <section
@@ -26,21 +28,9 @@ const Login = () => {
                     <SignUp />
                 </div>
             ) : (
-                <>
-                    <h3 className="mb-4 text-center">Login</h3>
-                    {/* <LoginForm /> */}
-                    <p>
-                        Dont have account?{" "}
-                        <a
-                            role="button"
-                            onClick={toggleFormType}
-                            className="text-violet-600 hover:text-violet-400"
-                        >
-                            {" "}
-                            Sign Up
-                        </a>
-                    </p>
-                </>
+                <div className="flex justify-center items-center flex-col max-w-[400px]">
+                    <SignIn/>
+                </div>
             )}
         </section>
     );

@@ -30,27 +30,27 @@ const initState = {
         },
         {
             title: "Cut off",
-            description: "Win with scissors ✌",
+            description: "Win with scissors ✌🏻",
             rules: { scissors: { win: 100 } }
         },
         {
             title: "Smash them",
-            description: "Win with rock ✊",
+            description: "Win with rock ✊🏻",
             rules: { rock: { win: 100 } }
         },
         {
             title: "Death note",
-            description: "Win with paper 🤚",
+            description: "Win with paper ✋🏻",
             rules: { paper: { win: 100 } }
         },
         {
             title: "Ancient dragon",
-            description: "Win with lizard 🤏",
+            description: "Win with lizard 🤏🏻",
             rules: { lizard: { win: 100 } }
         },
         {
             title: "I am Spock",
-            description: "Win with spock 🖖",
+            description: "Win with spock 🖖🏻",
             rules: { spock: { win: 100 } }
         },
         {
@@ -64,11 +64,11 @@ const initState = {
         "5 - add lizard, spock": ["lizard", "spock", "scissors", "paper", "rock"]
     },
     gameItems: {
-        scissors: "✌",
-        paper: "✋",
-        rock: "✊",
-        lizard: "🤏",
-        spock: "🖖",
+        scissors: "✌🏻",
+        paper: "✋🏻",
+        rock: "✊🏻",
+        lizard: "🤏🏻",
+        spock: "🖖🏻",
         random: "❔"
     },
     ratingScale: { lose: -2, win: 5 },

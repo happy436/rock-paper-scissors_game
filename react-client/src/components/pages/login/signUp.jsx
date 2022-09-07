@@ -13,7 +13,7 @@ function SignUp() {
         password: "",
         name: ""
     });
-    const getRandomAvatar = `https://avatars.dicebear.com/api/avataaars/${(
+    const getRandomAvatar = () => `https://avatars.dicebear.com/api/avataaars/${(
         Math.random() + 1
     )
         .toString(36)
@@ -99,6 +99,7 @@ function SignUp() {
                 <button
                     className="bg-slate-600 rounded-full p-1 absolute top-0 right-0"
                     onClick={() => setImage(getRandomAvatar)}
+                    type="button"
                 >
                     <Refresh />
                 </button>

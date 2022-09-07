@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import AppLoader from "./components/hoc/appLoader";
@@ -12,24 +12,24 @@ import Header from "./components/header";
 import Settings from "./components/pages/settings/settings";
 import AchievementsContainer from "./components/pages/achievements/achievementsContainer";
 import ProfileContainer from "./components/pages/profile/profileContainer";
+import history from "./utils/history";
 
 function App() {
     const isLoggedIn = false;
+    const urlWithoutHeader = ["/login/login", "/login/register", "/", "/game", ""];
+    const [urlHistory, setUrlHistory] = useState(history.location.pathname);
+    const [showHeader, setShowHeader] = useState(false);
+    useEffect(() => {
+        setUrlHistory(history.location.pathname);
+        setShowHeader(!urlWithoutHeader.includes(urlHistory));
+    }, [history.location.pathname]);
     return (
         <AppLoader>
-            <h1 className="hidden">Rock, paper, scissors</h1>
-            <Header />
+            <h1 hidden>Rock, paper, scissors</h1>
+            {showHeader && <Header />}
             <main className="flex justify-center w-full">
                 <Switch>
                     {/*
-                <ProtectedRoute
-                    path="/profile/:userId?"
-                    component={Profile}
-                />
-                <ProtectedRoute
-                    path="/achievements/:userId?" component={Achievements}
-                />
-                <ProtectedRoute path="/rating" component={Rating} />
                 <ProtectedRoute path="/game" component={Game} /> */}
                     <Route path="/rating" component={Rating} />
                     <Route path="/game/:type?" component={Game} />
