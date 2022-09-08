@@ -19,13 +19,16 @@ function App() {
     const location = useLocation();
     const transition = useTransition(location, {
         from: {
-            opacity: 0
+            opacity: 0,
+            scale: 0
         },
         enter: {
-            opacity: 1
+            opacity: 1,
+            scale: 1
         },
         leave: {
-            opacity: 0
+            opacity: 0,
+            scale: 0
         }
     });
     /* const urlWithoutHeader = ["/login/login", "/login/register", "/", "/game", ""];
@@ -43,7 +46,7 @@ function App() {
             {/* } */}
             <main className="flex justify-center relative">
                 {transition((props, item) => (
-                    <animated.div style={props}>
+                    <animated.div style={{ ...props, width: "100%", left: 0, position: "absolute" }}>
                         <div className="absolute w-full left-0">
                             <Switch location={item}>
                                 {/*

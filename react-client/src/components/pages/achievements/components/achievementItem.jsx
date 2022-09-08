@@ -14,26 +14,25 @@ function AchievementItem({ title, description, goal, value, star }) {
         ));
     };
     return (
-        <li key={title}>
-            <section
-                className={`px-4 py-2 max-w-[400px] w-full ${
-                    goal <= value ? "bg-yellow-400 " : "bg-white"
-                } rounded-xl`}
-            >
-                <div className="flex flex-col items-center gap-[10px]">
-                    <span className="text-center">
-                        <h3>{title}</h3>
-                        <p>{description}</p>
-                    </span>
-                    <span className="text-yellow-400">{multiply(star)}</span>
-                    <ProgressBar
-                        label={`${goal <= value ? value : value + "/" + goal}`}
-                        maxValue={goal}
-                        value={value}
-                    />
-                </div>
-            </section>
-        </li>
+        <section
+            key={title}
+            className={`px-4 py-2 max-w-[400px] w-full ${
+                goal <= value ? "bg-yellow-400 " : "bg-white"
+            } rounded-xl`}
+        >
+            <div className="flex flex-col items-center gap-[10px]">
+                <span className="text-center">
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                </span>
+                <span className="text-yellow-400">{multiply(star)}</span>
+                <ProgressBar
+                    label={`${goal <= value ? value : value + "/" + goal}`}
+                    maxValue={goal}
+                    value={value}
+                />
+            </div>
+        </section>
     );
 }
 
