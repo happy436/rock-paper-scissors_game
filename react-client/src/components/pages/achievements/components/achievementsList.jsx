@@ -9,7 +9,7 @@ import {
 
 function AchievementsList({ list }) {
     const transition = useTransition(list, {
-        delay: 650,
+        /* delay: 650, */
         trail: 1000 / list.length,
         config: config.stiff,
         from: { opacity: 0, scale: 0 },
