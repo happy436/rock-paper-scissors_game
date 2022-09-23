@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import gameDataService from "../services/gameData.service";
 
-/* const initState = {
+const initState = {
     achievements: [
         {
             title: "I am the best",
@@ -109,16 +109,12 @@ import gameDataService from "../services/gameData.service";
             spock: "draw"
         }
     }
-}; */
+};
 
 const gameDataSlice = createSlice({
     name: "gameData",
     initialState: {
-<<<<<<< HEAD
         entities: initState,
-=======
-        entities: null,
->>>>>>> e8cac8c3bf1d3955e0648e48fb4c971b020b234a
         isLoading: true,
         error: null
     },
