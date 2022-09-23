@@ -18,7 +18,7 @@ function AchievementItem({ title, description, goal, value, star }) {
             key={title}
             className={`px-4 py-2 max-w-[400px] w-full ${
                 goal <= value ? "bg-yellow-400 " : "bg-white"
-            } rounded-xl`}
+            } rounded-xl raised-m`}
         >
             <div className="flex flex-col items-center gap-[10px]">
                 <span className="text-center">

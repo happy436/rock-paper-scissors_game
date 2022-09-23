@@ -1,16 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function RatingItem({ user, index, handleSelectUser, currentUserId }) {
+function RatingItem({
+    user,
+    index,
+    handleSelectUser,
+    currentUserId,
+    handleShowModal
+}) {
     return (
         <span
             key={user._id}
-            onClick={() => handleSelectUser(user._id)}
-            className={`flex items-center  rounded-full bg-white flex justify-between px-3 py-2 ${
+            onClick={() => {
+                handleSelectUser(user._id);
+                handleShowModal(true);
+            }}
+            className={`flex items-center  rounded-full cursor-pointer bg-white flex justify-between px-3 py-2 ${
                 currentUserId === user._id && "border-green-500 border-4"
             } ${index + 1 === 1 && "bg-yellow-300"} ${
                 index + 1 === 2 && "bg-slate-300"
-            } ${index + 1 === 3 && "bg-orange-500"}`}
+            } ${index + 1 === 3 && "bg-orange-500"} raised-m `}
         >
             <span className="flex gap-[10px] items-center">
                 <p>{index + 1}.</p>
@@ -30,7 +39,8 @@ RatingItem.propTypes = {
     index: PropTypes.number,
     user: PropTypes.object,
     currentUserId: PropTypes.string,
-    handleSelectUser: PropTypes.func
+    handleSelectUser: PropTypes.func,
+    handleShowModal: PropTypes.func
 };
 
 export default RatingItem;

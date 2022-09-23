@@ -45,7 +45,7 @@ function Header() {
         <header className="flex fixed justify-between pl-[20px] w-full top-0 pr-[20px] z-20 pt-[20px] basis-1/12">
             <span className="relative">
                 <button
-                    className="btn p-5 rounded-[32px] h-[64px]"
+                    className={`${showMenu && "hidden"} btn p-5 raised-m rounded-[32px] h-[64px]`}
                     onClick={() => setShowMenu((prev) => !prev)}
                 >
                     <Menu />
@@ -58,7 +58,7 @@ function Header() {
                     setShowMenu={setShowMenu}
                 />
             </span>
-            <button className="btn p-5 rounded-[32px] h-[64px]">
+            <button className="btn p-5 raised-m rounded-[32px] h-[64px]">
                 <LogOut />
             </button>
         </header>

@@ -1,0 +1,31 @@
+.btn:hover,
+.link:hover,
+.sunken-xs {
+    box-shadow: inset -2px -2px 4px var(--light-shadow),
+        inset 2px 2px 4px var(--dark-shadow);
+}
+
+.sunken-m {
+    box-shadow: inset -6px -6px 12px var(--light-shadow),
+        inset 6px 6px 12px var(--dark-shadow);
+}
+
+.sunken-xl {
+    box-shadow: inset -10px -10px 20px var(--light-shadow),
+        inset 10px 10px 20px var(--dark-shadow);
+}
+
+.raised-xs {
+    box-shadow: -2px -2px 4px var(--light-shadow),
+        2px 2px 4px var(--dark-shadow);
+}
+
+.raised-m {
+    box-shadow: -6px -6px 12px var(--light-shadow),
+        6px 6px 12px var(--dark-shadow);
+}
+
+.raised-xl {
+    box-shadow: -10px -10px 20px var(--light-shadow),
+        10px 10px 20px var(--dark-shadow);
+}

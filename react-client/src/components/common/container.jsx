@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Container({ children, maxWidth }) {
     return (
         <section
-            className={`px-4 py-2 max-w-[${maxWidth}px] w-full bg-white rounded-xl h-full`}
+            className={`px-4 py-2 max-w-[${maxWidth}px] w-full bg-white rounded-xl h-full h-max component raised-m shadow-xl`}
         >
             {children}
         </section>

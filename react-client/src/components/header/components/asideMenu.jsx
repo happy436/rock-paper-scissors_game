@@ -16,13 +16,13 @@ function AsideMenu({
         setShowMenu((prev) => !prev);
         setExpandMenu(false);
     };
-    const style = { height: `${(itemsList.length + 2) * 47}px`, zIndex: 20 };
+    const style = { height: `${(itemsList.length + 2) * 47}px`, zIndex: 40 };
     return (
         <aside
             style={showMenu ? style : null}
             className={`${s.aside}  ${
                 expandMenu && s.expandMenu
-            } absolute top-0 left-0 flex flex-nowrap container-concave bg-indigo-600 flex-col p-5 rounded-[32px]`}
+            } absolute top-0 left-0 flex flex-nowrap sunken-m component flex-col p-5 rounded-[32px]`}
         >
             <nav>
                 <ul className="flex gap-[20px] flex-col">
@@ -33,7 +33,7 @@ function AsideMenu({
                             onClick={() => hideAndCloseMenu()}
                         >
                             <Link className="flex" to={item.url}>
-                                <span className="h-[24px] overflow-hidden">
+                                <span className="h-[24px] overflow-hidden w-full">
                                     {item.icon} {item.name}
                                 </span>
                             </Link>

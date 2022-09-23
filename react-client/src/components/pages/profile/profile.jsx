@@ -19,9 +19,9 @@ function Profile({
     loseScalePoint
 }) {
     return (
-        <section className="flex justify-center content-center mt-[100px] w-full h-full mb-[20px] mx-[20px] profile">
+        <section className="flex justify-center content-center pl-[15px] pr-[15px] mt-[80px] pt-[20px] pb-[20px] w-full h-full mb-[20px] profile">
             <Container maxWidth={400}>
-                <span className="text-[24px] flex justify-between items-center">
+                <span className="text-[24px] flex justify-between items-center" onClick={e => e.stopPropagation()}>
                     <p>
                         {winGame * winScalePoints + loseGame * loseScalePoint}
                     </p>

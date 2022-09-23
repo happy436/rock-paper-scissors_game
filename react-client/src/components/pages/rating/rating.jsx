@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import RatingList from "./components/ratingList";
 import { getCurrentUserId, getUsersList } from "../../../store/users";
 import { useSelector } from "react-redux";
@@ -30,9 +30,41 @@ function Rating() {
     }, []);
     const currentUserId = useSelector(getCurrentUserId());
     const [selectedUser, setSelectedUser] = useState(currentUserId);
+    const [size, setSize] = useState({});
+    const [showProfileModal, setShowProfileModal] = useState(false);
+    const ref = useRef();
+
+    const resizeHandler = () => {
+        const { clientHeight, clientWidth } = ref.current || {};
+        setSize({ clientHeight, clientWidth });
+        if (size.clientWidth < 768) {
+            setShowProfileModal(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("resize", resizeHandler);
+        resizeHandler();
+        return () => {
+            window.removeEventListener("resize", resizeHandler);
+        };
+    }, []);
     return (
-        <section className="w-full mt-[100px] mb-5 flex justify-evenly">
-            <article className="fixed hidden md:block top-0 left-[40px] lg:left-[100px] lg:w-[400px] 2xl:left-[300px]">
+        <section
+            className="w-full mt-[100px] mb-5 flex justify-evenly"
+            ref={ref}
+        >
+            <article
+                className={`${
+                    (size.clientWidth < 768 && showProfileModal)
+                        ? "flex top-0 left-0 right-0 bottom-0 bg-opacity-50 items-center bg-black z-20"
+                        : "hidden"
+                } fixed md:top-0 md:left-[80px] pl-[20px] md:block lg:left-[100px] lg:w-[400px] 2xl:left-[300px]`}
+                onClick={() => {
+                    console.log("modal");
+                    setShowProfileModal(false);
+                }}
+            >
                 <ProfileContainer userId={selectedUser} />
             </article>
             <article
@@ -42,6 +74,7 @@ function Rating() {
                     list={list}
                     handleSelectUser={setSelectedUser}
                     currentUserId={currentUserId}
+                    setShowModal={setShowProfileModal}
                 />
             </article>
         </section>

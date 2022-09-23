@@ -5,6 +5,7 @@
     overflow: hidden;
     z-index: -1;
     transition: height 1s ease, width 1s ease;
+    background-color: var(--bg-color-button);
 }
 
 .hide {

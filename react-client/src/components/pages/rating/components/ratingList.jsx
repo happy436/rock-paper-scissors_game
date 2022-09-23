@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import RatingItem from "./ratingItem";
 import { useTransition, config, animated } from "react-spring";
 
-function RatingList({ list, handleSelectUser, currentUserId }) {
+function RatingList({ list, handleSelectUser, currentUserId, setShowModal }) {
     const transition = useTransition(list, {
         trail: 3000 / list.length,
         config: config.stiff,
@@ -19,22 +19,11 @@ function RatingList({ list, handleSelectUser, currentUserId }) {
                         user={user}
                         index={list.indexOf(user)}
                         handleSelectUser={handleSelectUser}
+                        handleShowModal={setShowModal}
                         currentUserId={currentUserId}
                     />
                 </animated.li>
             ))}
-            {/* {list
-                .map((user, index) => {
-                    return (
-                        <RatingItem
-                            key={user._id}
-                            user={user}
-                            index={index}
-                            handleSelectUser={handleSelectUser}
-                            currentUserId={currentUserId}
-                        />
-                    );
-                })} */}
         </ul>
     );
 }
@@ -42,7 +31,8 @@ function RatingList({ list, handleSelectUser, currentUserId }) {
 RatingList.propTypes = {
     list: PropTypes.array,
     handleSelectUser: PropTypes.func,
-    currentUserId: PropTypes.string
+    currentUserId: PropTypes.string,
+    setShowModal: PropTypes.func
 };
 
 export default RatingList;

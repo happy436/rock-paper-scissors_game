@@ -114,10 +114,9 @@ const initState = {
 const gameDataSlice = createSlice({
     name: "gameData",
     initialState: {
-        entities: initState || null,
+        entities: initState,
         isLoading: true,
-        error: null,
-        lastFetch: null
+        error: null
     },
     reducers: {
         gameDataRequested: (state) => {

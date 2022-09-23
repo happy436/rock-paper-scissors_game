@@ -11,8 +11,22 @@ function Settings(props) {
                         <span>
                             <h4>Language:</h4>
                         </span>
-                        <span>
+                        <span className="flex flex-col items-center">
                             <h4>Theme:</h4>
+                            <button
+                                className="btn p-5 raised-m rounded-full h-[64px] w-[64px]"
+                                onClick={() => {
+                                    const theme = ["standart", "dark", "white"];
+                                    const activeTheme =
+                                        localStorage.getItem("theme");
+                                    const activeIndex =
+                                        theme.findIndex(i => i === (activeTheme || "standart"));
+                                    localStorage.setItem(
+                                        "theme",
+                                        theme[activeIndex + 1 || 0]
+                                    );
+                                }}
+                            ></button>
                         </span>
                     </div>
                     <div>

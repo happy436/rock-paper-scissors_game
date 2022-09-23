@@ -1,0 +1,27 @@
+.standart {
+    --bg-color-main: #818cf8;
+    --bg-color-component: #4f46e5;
+    --bg-color-button: #6366f1;
+    --text-color: #fff;
+    --bg-color-button-hover: #4338ca;
+}
+
+.white {
+    --bg-color-main: #e9eaf0;
+    --bg-color-button: #dcdde2;
+    --bg-color-button-hover: #b9babe;
+    --text-color: #fff;
+    --light-shadow: rgba(255, 255, 255, 0.4);
+    --dark-shadow: rgba(117, 126, 149, 0.25);
+    --gradient: linear-gradient(0deg, #2fb8ff 0%, #9efcd9 100%);
+}
+
+.dark {
+    --bg-color-main: #24272c;
+    --bg-color-button: #1d2024;
+    --bg-color-button-hover: #191b1f;
+    --text-color: #fff;
+    --light-shadow: rgba(255, 255, 255, 0.15);
+    --dark-shadow: rgba(0, 0, 0, 0.25);
+    --gradient: linear-gradient(0deg, #2fb8ff 0%, #9efcd9 100%);
+}

@@ -360,7 +360,7 @@ const testState = [
         name: "Loli",
         history: {
             scissors: { win: 101, lose: 11, draw: 12 },
-            rock: { win: 1, lose: 10, draw: 10 },
+            rock: { win: 1, lose: 49, draw: 10 },
             spock: { win: 10, lose: 10, draw: 9 },
             lizard: { win: 10, lose: 10, draw: 10 },
             paper: { win: 10, lose: 10, draw: 10 },

@@ -46,7 +46,9 @@ function AchievementsContainer(props) {
         description: i.description,
         goal: refactoringDataForGoal(i),
         value: refactoringDataForValue(i)
-    }));
+    })).sort((a, b) => {
+        return ((a.value * 100) / a.goal) - ((b.value * 100) / b.goal);
+    });
 
     return <Achievements list={list} />;
 }
