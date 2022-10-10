@@ -6,7 +6,7 @@ import InitLogin from "./layouts/initLogin";
 const Main = () => {
     const isLoggedIn = false;
     return (
-        <section className={`container-center flex flex-col gap-[40px] mt-[200px]`}>
+        <section className={`container-center flex flex-col gap-[40px] mt-[100px] mb-[50px]`}>
             <span className="text-[60px] hidden">✊🏻 ✌🏻 ✋🏻 🤏🏻 🖖🏻</span>
             <span className="container-center flex-col">
                 <h1 className="text-5xl text-center">✊🏻 ✋🏻 ✌🏻</h1>

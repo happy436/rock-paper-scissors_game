@@ -21,7 +21,10 @@ function Profile({
     return (
         <section className="flex justify-center content-center pl-[15px] pr-[15px] mt-[80px] pt-[20px] pb-[20px] w-full h-full mb-[20px] profile">
             <Container maxWidth={400}>
-                <span className="text-[24px] flex justify-between items-center" onClick={e => e.stopPropagation()}>
+                <span
+                    className="text-[24px] flex justify-between items-center"
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <p>
                         {winGame * winScalePoints + loseGame * loseScalePoint}
                     </p>
@@ -33,12 +36,17 @@ function Profile({
                     </Link>
                 </span>
                 <div className="flex flex-col items-center gap-[10px] mb-4">
-                    <span className="">
+                    <span className="relative">
                         <img
                             className="h-[100px] w-[100px] rounded-full bg-slate-200"
                             alt="profile image"
                             src={image}
                         />
+                        <span className="text-red-400 absolute bottom-0 left-3">
+                            <Star active={false}/>
+                            <Star active={false}/>
+                            <Star active={false}/>
+                        </span>
                     </span>
                     <h2>{name}</h2>
                     {/* <progress
@@ -87,11 +95,7 @@ function Profile({
                                     key={Object.keys(item)[0]}
                                     className="grid grid-cols-2 justify-items-center"
                                 >
-                                    <p>
-                                        {
-                                            gameItems[Object.keys(item)[0]]
-                                        }
-                                    </p>
+                                    <p>{gameItems[Object.keys(item)[0]]}</p>
                                     <p>
                                         {Object.values(
                                             Object.values(item)[0]

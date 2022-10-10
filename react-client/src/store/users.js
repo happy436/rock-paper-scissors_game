@@ -12,7 +12,7 @@ const testState = [
         image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
             .toString(36)
             .substring(7)}.svg`,
-        name: "Alex",
+        name: "Piter",
         history: {
             scissors: { win: 20, lose: 11, draw: 12 },
             rock: { win: 30, lose: 10, draw: 10 },
@@ -27,11 +27,11 @@ const testState = [
         image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
             .toString(36)
             .substring(7)}.svg`,
-        name: "Alex",
+        name: "Wolvering",
         history: {
             scissors: { win: 20, lose: 11, draw: 12 },
             rock: { win: 30, lose: 10, draw: 10 },
-            spock: { win: 10, lose: 10, draw: 9 },
+            spock: { win: 10, lose: 20, draw: 9 },
             lizard: { win: 10, lose: 10, draw: 10 },
             paper: { win: 20, lose: 10, draw: 10 },
             random: { win: 20, lose: 10, draw: 10 }
@@ -46,7 +46,7 @@ const testState = [
         history: {
             scissors: { win: 20, lose: 11, draw: 12 },
             rock: { win: 30, lose: 10, draw: 10 },
-            spock: { win: 10, lose: 10, draw: 9 },
+            spock: { win: 20, lose: 10, draw: 9 },
             lizard: { win: 10, lose: 10, draw: 10 },
             paper: { win: 20, lose: 10, draw: 10 },
             random: { win: 20, lose: 10, draw: 10 }
@@ -57,11 +57,71 @@ const testState = [
         image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
             .toString(36)
             .substring(7)}.svg`,
-        name: "Alex",
+        name: "Rick",
         history: {
             scissors: { win: 20, lose: 11, draw: 12 },
             rock: { win: 30, lose: 10, draw: 10 },
             spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 10, lose: 22, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Leo",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 10, lose: 32, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Karen",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 23, lose: 13, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Missy228",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 10, lose: 10, draw: 9 },
+            lizard: { win: 23, lose: 10, draw: 10 },
+            paper: { win: 20, lose: 10, draw: 10 },
+            random: { win: 20, lose: 10, draw: 10 }
+        }
+    },
+    {
+        _id: nanoid(),
+        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`,
+        name: "Jim",
+        history: {
+            scissors: { win: 20, lose: 11, draw: 12 },
+            rock: { win: 30, lose: 10, draw: 10 },
+            spock: { win: 11, lose: 10, draw: 9 },
             lizard: { win: 10, lose: 10, draw: 10 },
             paper: { win: 20, lose: 10, draw: 10 },
             random: { win: 20, lose: 10, draw: 10 }
@@ -72,71 +132,11 @@ const testState = [
         image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
             .toString(36)
             .substring(7)}.svg`,
-        name: "Alex",
+        name: "Bill",
         history: {
             scissors: { win: 20, lose: 11, draw: 12 },
             rock: { win: 30, lose: 10, draw: 10 },
-            spock: { win: 10, lose: 10, draw: 9 },
-            lizard: { win: 10, lose: 10, draw: 10 },
-            paper: { win: 20, lose: 10, draw: 10 },
-            random: { win: 20, lose: 10, draw: 10 }
-        }
-    },
-    {
-        _id: nanoid(),
-        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
-            .toString(36)
-            .substring(7)}.svg`,
-        name: "Alex",
-        history: {
-            scissors: { win: 20, lose: 11, draw: 12 },
-            rock: { win: 30, lose: 10, draw: 10 },
-            spock: { win: 10, lose: 10, draw: 9 },
-            lizard: { win: 10, lose: 10, draw: 10 },
-            paper: { win: 20, lose: 10, draw: 10 },
-            random: { win: 20, lose: 10, draw: 10 }
-        }
-    },
-    {
-        _id: nanoid(),
-        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
-            .toString(36)
-            .substring(7)}.svg`,
-        name: "Alex",
-        history: {
-            scissors: { win: 20, lose: 11, draw: 12 },
-            rock: { win: 30, lose: 10, draw: 10 },
-            spock: { win: 10, lose: 10, draw: 9 },
-            lizard: { win: 10, lose: 10, draw: 10 },
-            paper: { win: 20, lose: 10, draw: 10 },
-            random: { win: 20, lose: 10, draw: 10 }
-        }
-    },
-    {
-        _id: nanoid(),
-        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
-            .toString(36)
-            .substring(7)}.svg`,
-        name: "Alex",
-        history: {
-            scissors: { win: 20, lose: 11, draw: 12 },
-            rock: { win: 30, lose: 10, draw: 10 },
-            spock: { win: 10, lose: 10, draw: 9 },
-            lizard: { win: 10, lose: 10, draw: 10 },
-            paper: { win: 20, lose: 10, draw: 10 },
-            random: { win: 20, lose: 10, draw: 10 }
-        }
-    },
-    {
-        _id: nanoid(),
-        image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
-            .toString(36)
-            .substring(7)}.svg`,
-        name: "Alex",
-        history: {
-            scissors: { win: 20, lose: 11, draw: 12 },
-            rock: { win: 30, lose: 10, draw: 10 },
-            spock: { win: 10, lose: 10, draw: 9 },
+            spock: { win: 13, lose: 10, draw: 9 },
             lizard: { win: 10, lose: 10, draw: 10 },
             paper: { win: 20, lose: 10, draw: 10 },
             random: { win: 20, lose: 10, draw: 10 }

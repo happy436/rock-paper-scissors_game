@@ -13,16 +13,16 @@ body {
     font-family: "Kavoon", cursive;
     position: relative;
     height: 100vh;
+    background-color: var(--bg-color-main);
 }
 
 #root {
     height: 100%;
     color: var(--text-color);
-    background-color: var(--bg-color-main);
 }
 
 .btn {
-    color:var(--text-color);
+    color: var(--text-color);
     background-color: var(--bg-color-button);
     /* width: max-content; */
 }
@@ -31,26 +31,26 @@ body {
     background: var(--bg-color-button-hover);
 }
 
-.component{
-    color:var(--text-color);
+.component {
+    color: var(--text-color);
     background-color: var(--bg-color-component);
 }
 
 @layer utilities {
     @variants responsive {
         .text-shadow {
-          text-shadow: 2px 2px 4px black;
+            text-shadow: 2px 2px 4px black;
         }
         .text-shadow-md {
-          text-shadow: 4px 4px 8px black;
+            text-shadow: 4px 4px 8px black;
         }
         .text-shadow-lg {
-          text-shadow: 15px 15px 30px black;
+            text-shadow: 15px 15px 30px black;
         }
         .text-shadow-none {
-          text-shadow: none;
+            text-shadow: none;
         }
-    } 
+    }
 }
 
 * {

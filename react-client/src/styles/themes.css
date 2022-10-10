@@ -1,27 +1,89 @@
-.standart {
-    --bg-color-main: #818cf8;
-    --bg-color-component: #4f46e5;
-    --bg-color-button: #6366f1;
+body[data-theme="indigo"] {
+    --bg-color-main: theme("colors.indigo.400");
+    --bg-color-button: theme("colors.indigo.500");
+    --bg-color-button-hover: theme("colors.indigo.700");
+    --bg-color-component: theme("colors.indigo.600");
     --text-color: #fff;
-    --bg-color-button-hover: #4338ca;
+    --light-shadow: rgba(164, 139, 253, 0.4);
+    --dark-shadow: rgba(62, 117, 255, 0.25);
 }
 
-.white {
+body[data-theme="white"] {
     --bg-color-main: #e9eaf0;
     --bg-color-button: #dcdde2;
     --bg-color-button-hover: #b9babe;
+    --bg-color-component: #fff;
     --text-color: #fff;
     --light-shadow: rgba(255, 255, 255, 0.4);
     --dark-shadow: rgba(117, 126, 149, 0.25);
-    --gradient: linear-gradient(0deg, #2fb8ff 0%, #9efcd9 100%);
 }
 
-.dark {
+body[data-theme="black"] {
     --bg-color-main: #24272c;
     --bg-color-button: #1d2024;
     --bg-color-button-hover: #191b1f;
+    --bg-color-component: #fff;
     --text-color: #fff;
     --light-shadow: rgba(255, 255, 255, 0.15);
     --dark-shadow: rgba(0, 0, 0, 0.25);
-    --gradient: linear-gradient(0deg, #2fb8ff 0%, #9efcd9 100%);
+}
+
+body[data-theme="red"] {
+    --bg-color-main: theme("colors.red.400");
+    --bg-color-button: theme("colors.red.500");
+    --bg-color-button-hover: theme("colors.red.700");
+    --bg-color-component: theme("colors.red.600");
+    --text-color: #fff;
+    --light-shadow: rgba(253, 139, 196, 0.4);
+    --dark-shadow: rgba(255, 62, 62, 0.25);
+}
+
+body[data-theme="amber"] {
+    --bg-color-main: theme("colors.amber.400");
+    --bg-color-button: theme("colors.amber.500");
+    --bg-color-button-hover: theme("colors.amber.700");
+    --bg-color-component: theme("colors.amber.600");
+    --text-color: #fff;
+    --light-shadow: rgba(253, 194, 139, 0.4);
+    --dark-shadow: rgba(255, 101, 62, 0.25);
+}
+
+body[data-theme="emerald"] {
+    --bg-color-main: theme("colors.emerald.400");
+    --bg-color-button: theme("colors.emerald.500");
+    --bg-color-button-hover: theme("colors.emerald.700");
+    --bg-color-component: theme("colors.emerald.600");
+    --text-color: #fff;
+    --light-shadow: rgba(139, 253, 219, 0.4);
+    --dark-shadow: rgba(62, 255, 181, 0.25);
+}
+
+body[data-theme="sky"] {
+    --bg-color-main: theme("colors.sky.400");
+    --bg-color-button: theme("colors.sky.500");
+    --bg-color-button-hover: theme("colors.sky.700");
+    --bg-color-component: theme("colors.sky.600");
+    --text-color: #fff;
+    --light-shadow: rgba(139, 202, 253, 0.4);
+    --dark-shadow: rgba(75, 62, 255, 0.25);
+}
+
+body[data-theme="purple"] {
+    --bg-color-main: theme("colors.purple.400");
+    --bg-color-button: theme("colors.purple.500");
+    --bg-color-button-hover: theme("colors.purple.700");
+    --bg-color-component: theme("colors.purple.600");
+    --text-color: #fff;
+    --light-shadow: rgba(207, 139, 253, 0.4);
+    --dark-shadow: rgba(210, 62, 255, 0.25);
+}
+
+body[data-theme="pink"] {
+    --bg-color-main: theme("colors.pink.400");
+    --bg-color-button: theme("colors.pink.500");
+    --bg-color-button-hover: theme("colors.pink.700");
+    --bg-color-component: theme("colors.pink.600");
+    --text-color: #fff;
+    --light-shadow: rgba(253, 139, 196, 0.4);
+    --dark-shadow: rgba(255, 62, 62, 0.25);
 }

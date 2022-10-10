@@ -2,7 +2,7 @@ import React /* , { useEffect, useState } */ from "react";
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
 import { ToastContainer } from "react-toastify";
-import AppLoader from "./components/hoc/appLoader";
+import AppLoader from "./components/hocs/appLoader";
 import Main from "./components/pages/main";
 import LogOut from "./components/pages/login/logOut";
 import Login from "./components/pages/login/login";
@@ -46,7 +46,14 @@ function App() {
             {/* } */}
             <main className="flex justify-center relative">
                 {transition((props, item) => (
-                    <animated.div style={{ ...props, width: "100%", left: 0, position: "absolute" }}>
+                    <animated.div
+                        style={{
+                            ...props,
+                            width: "100%",
+                            left: 0,
+                            position: "absolute"
+                        }}
+                    >
                         <div className="absolute w-full left-0">
                             <Switch location={item}>
                                 {/*

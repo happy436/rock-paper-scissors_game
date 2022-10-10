@@ -21,7 +21,7 @@
 .text-input {
     padding: 0.8rem;
     height: 100%;
-    border: 2px solid theme("colors.indigo.400");
+    border: 2px solid var(--bg-color-main);
     border-radius: 5px;
     font-size: 18px;
     outline: none;
@@ -30,7 +30,7 @@
 }
 
 .text-input:hover{
-    border-color: theme("colors.indigo.600");
+    border-color: var(--bg-color-button-hover);
 }
 
 .label::before {

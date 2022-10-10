@@ -8,17 +8,17 @@ import { Router } from "react-router-dom";
 import history from "./utils/history";
 import { Provider } from "react-redux";
 import { createStore } from "./store/createStore";
+import ThemeProvider from "./components/hooks/useTheme";
 
 const store = createStore();
-
-const theme = localStorage.getItem("theme");
-document.getElementById("root").className = theme || "standart";
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <Router history={history}>
-                <App />
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
             </Router>
         </Provider>
     </React.StrictMode>,
