@@ -22,7 +22,7 @@ function InitLogin(props) {
                                 .toString(36)
                                 .substring(7)}.svg`}
                         />
-                        <span className="text-slate-300 absolute bottom-0 left-3">
+                        <span className="text-slate-300 absolute bottom-[-20px] left-3">
                             <Star />
                             <Star />
                             <Star />
@@ -57,7 +57,7 @@ function InitLogin(props) {
                                 .toString(36)
                                 .substring(7)}.svg`}
                         />
-                        <span className="text-red-400 absolute bottom-0 left-3">
+                        <span className="text-red-400 absolute bottom-[-20px] left-3">
                             <Star styles={"fill-red-400"} />
                             <Star styles={"fill-red-400"} />
                             <Star styles={"fill-red-400"} />
@@ -68,12 +68,12 @@ function InitLogin(props) {
                     </div>
                 </div>
             </section>
-            <section className="container-center flex flex-col mx-[10px] gap-[20px] p-6 rounded-xl">
+            <section className="container-center flex flex-col sm:flex-row mx-[10px] gap-[20px] p-6 rounded-xl">
                 <div className="container-center flex flex-col">
                     <h2>Climb up!</h2>
                     <h4 className="text-[20px]">the leaderboard</h4>
                 </div>
-                <img src={leaderboard}></img>
+                <img className="sm:skew-y-12" src={leaderboard}></img>
             </section>
             <section className="container-center component raised-m flex flex-col gap-[20px] mx-[10px] p-6 rounded-xl">
                 <h2 className="text-center">Choose your favourite theme</h2>
