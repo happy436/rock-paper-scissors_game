@@ -24,7 +24,7 @@ function RatingItem({
             <span className="flex gap-[10px] items-center">
                 <p>{index + 1}.</p>
                 <span>
-                    <img className="h-[32px] w-[32px] rounded-full bg-slate-400"></img>
+                    <img src={user.image} className="h-[32px] w-[32px] rounded-full bg-slate-400"></img>
                 </span>
                 <p className="text-[20px]">{user.name}</p>
             </span>

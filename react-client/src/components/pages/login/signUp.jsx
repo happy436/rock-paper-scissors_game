@@ -13,11 +13,10 @@ function SignUp() {
         password: "",
         name: ""
     });
-    const getRandomAvatar = () => `https://avatars.dicebear.com/api/avataaars/${(
-        Math.random() + 1
-    )
-        .toString(36)
-        .substring(7)}.svg`;
+    const getRandomAvatar = () =>
+        `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+            .toString(36)
+            .substring(7)}.svg`;
     const [image, setImage] = useState(getRandomAvatar);
     const [errors, setErrors] = useState({});
     const authInError = useSelector(getAuthErrors());
@@ -80,7 +79,20 @@ function SignUp() {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        dispatch(signUp(data));
+        dispatch(
+            signUp({
+                ...data,
+                image,
+                history: {
+                    scissors: { win: 0, lose: 0, draw: 0 },
+                    rock: { win: 0, lose: 0, draw: 0 },
+                    spock: { win: 0, lose: 0, draw: 0 },
+                    lizard: { win: 0, lose: 0, draw: 0 },
+                    paper: { win: 0, lose: 0, draw: 0 },
+                    random: { win: 0, lose: 0, draw: 0 }
+                }
+            })
+        );
         if (authInError) {
             toast.error(authInError, { autoClose: 2000 });
         }

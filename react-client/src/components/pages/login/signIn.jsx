@@ -52,9 +52,7 @@ function SignIn(props) {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        const redirect = history.location.state
-            ? history.location.state.from.pathname
-            : "/main";
+        const redirect = "/home";
         dispatch(login({ payload: data, redirect }));
         if (logInError) {
             toast.error(logInError, { autoClose: 2000 });
@@ -64,6 +62,7 @@ function SignIn(props) {
         <form
             className="flex justify-center items-center flex-col gap-[20px] relative"
             onSubmit={handleSubmit}
+            autoComplete="off"
         >
             <div className="flex justify-center items-center shadow-xl flex-col bg-white pt-[20px] pb-[20px] w-[300px] rounded-xl absolute top-[75px] gap-[20px] z-10">
                 <h1>✌🏻 ✋🏻 ✊🏻</h1>
@@ -83,7 +82,7 @@ function SignIn(props) {
                     type="password"
                 />
                 <button
-                    className="btn bg-violet-400 hover:bg-violet-700 w-100 p-4 rounded-xl"
+                    className="btn w-100 p-4 rounded-xl"
                     disabled={!isValid}
                 >
                     Sign In

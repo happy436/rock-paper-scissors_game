@@ -1,15 +1,15 @@
 import { nanoid } from "nanoid";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getGameTypes } from "../../../../store/gameData";
 import Selector from "../../../common/select/selector";
 
 function InitGame(props) {
     const [gameType, setGameType] = useState("3 - classic");
-    const gameTypes = [
-        { _id: nanoid(), name: "3 - classic" },
-        { _id: nanoid(), name: "5 - add lizard, spock" }
-    ];
-    useEffect(() => console.log(gameType));
+    const getTypes = useSelector(getGameTypes());
+    const gameTypes = Object.keys(getTypes).map((i) => ({ name: i, _id: nanoid() }));
+
     return (
         <section className="container-center flex flex-col gap-[20px]">
             <Link
@@ -18,7 +18,11 @@ function InitGame(props) {
             >
                 Play
             </Link>
-            <Selector onChange={setGameType} options={gameTypes} selectedOption={gameType}/>
+            <Selector
+                onChange={setGameType}
+                options={gameTypes}
+                selectedOption={gameType}
+            />
         </section>
     );
 }

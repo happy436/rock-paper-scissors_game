@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import RatingList from "./components/ratingList";
-import { getCurrentUserId, getUsersList } from "../../../store/users";
+import { getCurrentUserId, getIsLoggedIn, getUsersList } from "../../../store/users";
 import { useSelector } from "react-redux";
 import ProfileContainer from "../profile/profileContainer";
 import { getGameRatingScale } from "../../../store/gameData";
@@ -28,7 +28,8 @@ function Rating() {
             return sortedList.sort((a, b) => b.rating - a.rating);
         });
     }, []);
-    const currentUserId = useSelector(getCurrentUserId());
+    const isLoggedIn = useSelector(getIsLoggedIn());
+    const currentUserId = isLoggedIn && useSelector(getCurrentUserId());
     const [selectedUser, setSelectedUser] = useState(currentUserId);
     const [size, setSize] = useState({});
     const [showProfileModal, setShowProfileModal] = useState(false);

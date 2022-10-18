@@ -6,7 +6,7 @@ select {
     outline: 0;
     box-shadow: none;
     border: 0 !important;
-    background: theme("colors.indigo.600");
+    background: var(--bg-color-button);
     background-image: none;
     flex: 1;
     padding: 0 0.5em;
@@ -22,7 +22,7 @@ select::-ms-expand {
     display: flex;
     height: 3em;
     line-height: 3;
-    background: theme("colors.indigo.600");
+    background: var(--bg-color-button);
     overflow: hidden;
     border-radius: 0.25em;
 }
@@ -32,7 +32,7 @@ select::-ms-expand {
     top: 0;
     right: 0;
     padding: 0 1em;
-    background: theme("colors.indigo.500");
+    background: var(--bg-color-button-hover);
     cursor: pointer;
     pointer-events: none;
     transition: 0.25s all ease;

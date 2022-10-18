@@ -8,12 +8,14 @@ import Setting from "../common/icon/setting";
 import Star from "../common/icon/star";
 import Home from "../common/icon/home";
 import { useSelector } from "react-redux";
-import { getCurrentUserId } from "./../../store/users";
+import { getCurrentUserId, getIsLoggedIn } from "./../../store/users";
+import { Link } from "react-router-dom";
 
 function Header() {
     const [showMenu, setShowMenu] = useState(false);
     const [expandMenu, setExpandMenu] = useState(false);
-    const currentUser = useSelector(getCurrentUserId());
+    const isLoggedIn = useSelector(getIsLoggedIn());
+    const currentUser = isLoggedIn && useSelector(getCurrentUserId());
     const menuList = [
         {
             name: "Main",
@@ -58,9 +60,9 @@ function Header() {
                     setShowMenu={setShowMenu}
                 />
             </span>
-            <button className="btn p-5 raised-m rounded-[32px] h-[64px]">
+            <Link to="/logout" className="btn p-5 raised-m rounded-[32px] h-[64px]">
                 <LogOut />
-            </button>
+            </Link>
         </header>
     );
 }

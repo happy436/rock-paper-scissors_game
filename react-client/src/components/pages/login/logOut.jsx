@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-/* import { useDispatch } from "react-redux"; */
-// import { logOut } from "../store/users";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../../store/users";
+import history from "../../../utils/history";
 
 const LogOut = () => {
-    /* const dispatch = useDispatch(); */
+    const dispatch = useDispatch();
     useEffect(() => {
-        // dispatch(logOut());
+        history.push("/");
+        dispatch(logOut());
     }, []);
     return <h1>Loading</h1>;
 };

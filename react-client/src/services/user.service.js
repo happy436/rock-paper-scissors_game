@@ -27,6 +27,17 @@ const userService = {
             payload
         );
         return data;
+    },
+    updateHistory: async (payload) => {
+        const { data } = await httpService.patch(
+            userEndpoint +
+                localStorageService.getUserId() +
+                "/history/" +
+                Object.keys(payload)[0] + // gameItem
+                "/",
+            Object.values(payload)[0]
+        );
+        return data;
     }
 };
 

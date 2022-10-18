@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getGameItems, getGameTypes, getRules } from "../../../store/gameData";
-import { getCurrentUserData, updateUser } from "../../../store/users";
+import { getCurrentUserData, updateUserHistory } from "../../../store/users";
 import history from "../../../utils/history";
 import randomSelector from "../../../utils/randomSelector";
 import Menu from "../../common/petal_menu/menu";
@@ -42,8 +42,8 @@ function Game(props) {
             const findResult = rules[selectedName][botSelectedName];
             setResult(findResult);
             dispatch(
-                updateUser({
-                    history: { [selectedName]: { [findResult]: userData.history[selectedName][findResult] + 1 } }
+                updateUserHistory({
+                    [selectedName]: { [findResult]: userData.history[selectedName][findResult] + 1 }
                 })
             );
             setTimeout(() => {

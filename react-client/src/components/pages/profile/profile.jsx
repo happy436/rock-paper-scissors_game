@@ -43,9 +43,9 @@ function Profile({
                             src={image}
                         />
                         <span className="text-red-400 absolute bottom-0 left-3">
-                            <Star active={false}/>
-                            <Star active={false}/>
-                            <Star active={false}/>
+                            <Star active={false} />
+                            <Star active={false} />
+                            <Star active={false} />
                         </span>
                     </span>
                     <h2>{name}</h2>
@@ -60,7 +60,7 @@ function Profile({
                     <span className="flex justify-between text-3xl">
                         <h4>Win rate:</h4>
                         <p>
-                            {((winGame * 100) / (winGame + loseGame)).toFixed(
+                            { winGame === 0 && loseGame === 0 ? 0 : ((winGame * 100) / (winGame + loseGame)).toFixed(
                                 1
                             )}
                             %
@@ -87,7 +87,7 @@ function Profile({
                     <span className="text-3xl">
                         <span className="flex items-center justify-evenly">
                             <p>Item</p>
-                            <p>W/L/D</p>
+                            <p>D/L/W</p>
                         </span>
                         {history.map((item) => {
                             return (

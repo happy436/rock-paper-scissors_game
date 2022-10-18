@@ -1,7 +1,8 @@
-import React /* , { useEffect, useState } */ from "react";
+import React/* , { useEffect, useState } */ from "react";
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AppLoader from "./components/hocs/appLoader";
 import Main from "./components/pages/main";
 import LogOut from "./components/pages/login/logOut";
@@ -9,13 +10,15 @@ import Login from "./components/pages/login/login";
 import Game from "./components/pages/game";
 import Rating from "./components/pages/rating";
 import Header from "./components/header";
-/* import ProtectedRoute from "./components/common/protectedRoute"; */
+import ProtectedRoute from "./components/common/protectedRoute";
 import Settings from "./components/pages/settings/settings";
 import AchievementsContainer from "./components/pages/achievements/achievementsContainer";
 import ProfileContainer from "./components/pages/profile/profileContainer";
+import { getIsLoggedIn } from "./store/users";
+import { useSelector } from "react-redux";
 
 function App() {
-    const isLoggedIn = false;
+    const isLoggedIn = useSelector(getIsLoggedIn());
     const location = useLocation();
     const transition = useTransition(location, {
         from: {
@@ -31,19 +34,24 @@ function App() {
             scale: 0
         }
     });
-    /* const urlWithoutHeader = ["/login/login", "/login/register", "/", "/game", ""];
+    /* const urlWithoutHeader = [
+        "/login/login",
+        "/login/register",
+        "/",
+        "/game",
+        "/logout",
+        ""
+    ];
     const [urlHistory, setUrlHistory] = useState(location.pathname);
     const [showHeader, setShowHeader] = useState(true);
     useEffect(() => {
         setUrlHistory(location.pathname);
         setShowHeader(!urlWithoutHeader.includes(urlHistory));
-    }, [location.pathname]); */
+    }, [isLoggedIn]); */
     return (
-        <AppLoader>
+        <>
             <h1 hidden>Rock, paper, scissors</h1>
-            {/* {showHeader &&  */}
-            <Header />
-            {/* } */}
+            {isLoggedIn ? <Header /> : null}
             <main className="flex justify-center relative">
                 {transition((props, item) => (
                     <animated.div
@@ -54,36 +62,48 @@ function App() {
                             position: "absolute"
                         }}
                     >
-                        <div className="absolute w-full left-0">
-                            <Switch location={item}>
-                                {/*
-                <ProtectedRoute path="/game" component={Game} /> */}
-                                <Route path="/rating" component={Rating} />
-                                <Route path="/game/:type?" component={Game} />
-                                <Route
-                                    path="/achievements/:userId?"
-                                    component={AchievementsContainer}
-                                />
-                                <Route
-                                    path="/profile/:userId?"
-                                    component={ProfileContainer}
-                                />
-                                <Route path="/settings" component={Settings} />
-                                <Route path="/login/:type?" component={Login} />
-                                <Route path="/logout" component={LogOut} />
-                                <Route
-                                    path={isLoggedIn ? "/home" : "/"}
-                                    exact
-                                    component={Main}
-                                />
-                                <Redirect to={isLoggedIn ? "/home" : "/"} />
-                            </Switch>
-                        </div>
+                        <AppLoader>
+                            <div className="absolute w-full h-screen left-0">
+                                <Switch location={item}>
+                                    <ProtectedRoute
+                                        path="/rating"
+                                        component={isLoggedIn ? Rating : null}
+                                    />
+                                    <ProtectedRoute
+                                        path="/game/:type?"
+                                        component={isLoggedIn ? Game : null}
+                                    />
+                                    <ProtectedRoute
+                                        path="/achievements/:userId?"
+                                        component={isLoggedIn ? AchievementsContainer : null}
+                                    />
+                                    <ProtectedRoute
+                                        path="/profile/:userId?"
+                                        component={isLoggedIn ? ProfileContainer : null}
+                                    />
+                                    <Route
+                                        path="/settings"
+                                        component={isLoggedIn ? Settings : null}
+                                    />
+                                    <Route
+                                        path="/login/:type?"
+                                        component={Login}
+                                    />
+                                    <Route path="/logout" component={LogOut} />
+                                    <Route
+                                        path={isLoggedIn ? "/home" : "/"}
+                                        exact
+                                        component={Main}
+                                    />
+                                    <Redirect to={isLoggedIn ? "/home" : "/"} />
+                                </Switch>
+                            </div>
+                        </AppLoader>
                     </animated.div>
                 ))}
             </main>
             <ToastContainer />
-        </AppLoader>
+        </>
     );
 }
 
